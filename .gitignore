@@ -1,0 +1,20 @@
+# misc system files
+.DS_Store
+
+# virtualenv files
+bin
+include
+lib
+.Python
+pip-selfcheck.json
+
+# database files
+db.sqlite3
+
+# misc django files
+__pycache__
+settings.py
+migrations
+
+# misc python files
+*.pyc
