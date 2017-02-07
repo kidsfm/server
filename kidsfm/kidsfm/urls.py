@@ -30,6 +30,9 @@ urlpatterns = [
     # /blog/
     url(r'^blog/', 				include('blog.urls')),
 
+    # /schedule/
+    url(r'^schedule/', 			include('schedule.urls')),
+
     # /admin/
     url(r'^admin/', 			admin.site.urls),
 
