@@ -27,13 +27,21 @@ urlpatterns = [
     							)
     ),
 
+    # /admin/
+    url(r'^admin/', 			admin.site.urls),
+
     # /blog/
     url(r'^blog/', 				include('blog.urls')),
 
     # /schedule/
     url(r'^schedule/', 			include('schedule.urls')),
 
-    # /admin/
-    url(r'^admin/', 			admin.site.urls),
+    # /team/
+    url(r'^team/', 			include('team.urls')),
 
 ]
+
+
+
+
+
