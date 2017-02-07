@@ -21,23 +21,29 @@ from django.views.generic 	import TemplateView
 
 urlpatterns = [
     # /*
-    url(r'^$', 					TemplateView.as_view(
-    													template_name='kidsfm/index.html', 
-    													content_type="text/html"
-    							)
+    url(r'^$', 			TemplateView.as_view(
+    											template_name='kidsfm/index.html', 
+    											content_type="text/html"
+    					)
     ),
 
     # /admin/
-    url(r'^admin/', 			admin.site.urls),
+    url(r'^admin/', 	admin.site.urls),
 
     # /blog/
-    url(r'^blog/', 				include('blog.urls')),
+    url(r'^blog/', 		include('blog.urls')),
+
+    # /images/
+    url(r'^images/', 	include('images.urls')),
 
     # /schedule/
-    url(r'^schedule/', 			include('schedule.urls')),
+    url(r'^schedule/', 	include('schedule.urls')),
 
     # /team/
-    url(r'^team/', 			include('team.urls')),
+    url(r'^team/', 		include('team.urls')),
+
+    # /videos/
+    url(r'^videos/', 	include('videos.urls')),
 
 ]
 
