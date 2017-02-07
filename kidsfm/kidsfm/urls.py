@@ -24,26 +24,27 @@ urlpatterns = [
     url(r'^$', 			TemplateView.as_view(
     											template_name='kidsfm/index.html', 
     											content_type="text/html"
-    					)
+    					),
+    					name='index'
     ),
 
     # /admin/
     url(r'^admin/', 	admin.site.urls),
 
     # /blog/
-    url(r'^blog/', 		include('blog.urls')),
+    url(r'^blog/', 		include('blog.urls'),		name='blog'),
 
     # /images/
-    url(r'^images/', 	include('images.urls')),
+    url(r'^images/', 	include('images.urls'),		name='images'),
 
     # /schedule/
-    url(r'^schedule/', 	include('schedule.urls')),
+    url(r'^schedule/', 	include('schedule.urls'),	name='schedule'),
 
     # /team/
-    url(r'^team/', 		include('team.urls')),
+    url(r'^team/', 		include('team.urls'),		name='team'),
 
     # /videos/
-    url(r'^videos/', 	include('videos.urls')),
+    url(r'^videos/', 	include('videos.urls'),		name='videos'),
 
 ]
 
