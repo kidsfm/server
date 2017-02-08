@@ -2,52 +2,92 @@
 
 <html>
 	<head>
-		{# Load CSS #}
+		<!-- meta tags -->
+		{# meta tags #}
+
+			<!-- base metadata -->
+			{% include 'kidsfm/partials/_base_meta.html' %}
+			<!-- end base metadata -->
+
+
+			<!-- page-specific metadata -->
+			{% block metadata %}
+			{% endblock %}
+			<!-- end page-specific metadata -->
+
+		{# end meta tags #}
+		<!-- end meta tags -->
+
+
+
 		<!-- stylsheets -->
+		{# load css #}
 
 			<!-- base css -->
 			<link rel="stylesheet" type="text/css" href="{% static "kidsfm/css/base.css" %}">
+			<!-- end base css -->
 
+
+			<!-- page-specific css -->
 			{% block css %}
 			{% endblock %}
+			<!-- end page-specific css -->
 
-		<!-- end stylsheets -->
 		{# end load CSS #}
+		<!-- end stylsheets -->
 	</head>
-	<body>
 
-		
-		{# Page container #}
+
+
+
+	<body>
 		<!-- page container -->
+		{# page container #}
+
+			<!-- navigation -->
+			{% include 'kidsfm/partials/_navigation.html' %}
+			<!-- end navigation -->
 			
 
+			<!-- page content -->
 			{% block content %}
 			{% endblock %}
+			<!-- end page content -->
 
 
+			<!-- footer -->
+			{% include 'kidsfm/partials/_footer.html' %}
+			<!-- end footer -->
 
-			{# footer #}
-			{# end footer #}
-
-		<!-- end page container -->
 		{# end page container #}
+		<!-- end page container -->
 		
 
 
-		{# Load JavaScript #}
 		<!-- scripts -->
+		{# load javaScript #}
 
 			<!-- base js -->
 			<script src="{% static "kidsfm/js/base.js" %}"></script>
+			<!-- end base js -->
 
+
+			<!-- page-specific js -->
 			{% block js %}
 			{% endblock %}
+			<!-- end page-specific js -->
 
+		{# end load javaScript #}
 		<!-- end scripts -->
-		{# end load JavaScript #}
-
 	</body>
 </html>
+
+
+
+
+
+
+
 
 
 

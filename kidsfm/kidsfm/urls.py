@@ -46,6 +46,21 @@ urlpatterns = [
     # /videos/
     url(r'^videos/', 	include('videos.urls'),		name='videos'),
 
+
+
+
+    ########################
+    # debug & testing
+    ########################
+    # /base.html
+    url(r'^base/',      TemplateView.as_view(
+                                                template_name='kidsfm/base.html', 
+                                                content_type="text/html"
+                        ),
+                        name='base'
+    ),
+
+
 ]
 
 
