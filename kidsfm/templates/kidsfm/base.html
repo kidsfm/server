@@ -1,0 +1,54 @@
+{% load staticfiles %}
+
+<html>
+	<head>
+		{# Load CSS #}
+		<!-- stylsheets -->
+
+			<!-- base css -->
+			<link rel="stylesheet" type="text/css" href="{% static "kidsfm/css/base.css" %}">
+
+			{% block css %}
+			{% endblock %}
+
+		<!-- end stylsheets -->
+		{# end load CSS #}
+	</head>
+	<body>
+
+		
+		{# Page container #}
+		<!-- page container -->
+			
+
+			{% block content %}
+			{% endblock %}
+
+
+
+			{# footer #}
+			{# end footer #}
+
+		<!-- end page container -->
+		{# end page container #}
+		
+
+
+		{# Load JavaScript #}
+		<!-- scripts -->
+
+			<!-- base js -->
+			<script src="{% static "kidsfm/js/base.js" %}"></script>
+
+			{% block js %}
+			{% endblock %}
+
+		<!-- end scripts -->
+		{# end load JavaScript #}
+
+	</body>
+</html>
+
+
+
+
