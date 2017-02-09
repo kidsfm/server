@@ -49,10 +49,12 @@ urlpatterns = [
 
 
 
+
     ########################
     # debug & testing
     ########################
-    # /base.html
+    
+    # /base
     url(r'^base/',      TemplateView.as_view(
                                                 template_name='kidsfm/base.html', 
                                                 content_type="text/html"
