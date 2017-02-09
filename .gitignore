@@ -13,7 +13,6 @@ db.sqlite3
 
 # misc django files
 __pycache__
-settings.py
 migrations
 
 # misc python files
@@ -21,3 +20,7 @@ migrations
 
 # temporarily skip images files until they are optimized
 *.jpg
+
+# secret files (authentication, DB, system)
+settings.py
+client_secrets.json

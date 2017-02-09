@@ -62,6 +62,14 @@ urlpatterns = [
                         name='base'
     ),
 
+    #/oauth2
+    url(r'^oauth2/',    TemplateView.as_view(
+                                                template_name='kidsfm/base.html', 
+                                                content_type="text/html"
+                        ),
+                        name='base'
+    ),
+
 
 ]
 
