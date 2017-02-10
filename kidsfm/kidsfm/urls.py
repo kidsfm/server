@@ -37,6 +37,9 @@ urlpatterns = [
     # /images/
     url(r'^images/', 	include('images.urls'),		name='images'),
 
+    # /oauth2/
+    url(r'^oauth2/',    include('oauth2.urls'),     name='oauth2'),
+
     # /schedule/
     url(r'^schedule/', 	include('schedule.urls'),	name='schedule'),
 
@@ -56,14 +59,6 @@ urlpatterns = [
     
     # /base
     url(r'^base/',      TemplateView.as_view(
-                                                template_name='kidsfm/base.html', 
-                                                content_type="text/html"
-                        ),
-                        name='base'
-    ),
-
-    #/oauth2
-    url(r'^oauth2/',    TemplateView.as_view(
                                                 template_name='kidsfm/base.html', 
                                                 content_type="text/html"
                         ),
