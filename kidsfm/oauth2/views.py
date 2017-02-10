@@ -21,3 +21,44 @@ class Index(View):
 	def post(self, request):
 		post_data = request.POST
 		return HttpResponse(json.dumps(post_data), content_type="application/json")
+
+
+
+
+class Instagram(View):
+	'''
+	plan to use this view to print handle post redirects from Instagram's 
+	oauth2 flow via url /oauth2/instagram/
+	'''
+	def get(self, request):
+		return HttpResponse('I am called from a get Request')
+	
+	def post(self, request):
+		post_data = request.POST
+		return HttpResponse(json.dumps(post_data), content_type="application/json")
+
+
+
+
+class Youtube(View):
+	'''
+	plan to use this view to print handle post redirects from Youtube's
+	oauth2 flow via url /oauth2/youtube/
+	'''
+	def get(self, request):
+		return HttpResponse('I am called from a get Request')
+	
+	def post(self, request):
+		post_data = request.POST
+		return HttpResponse(json.dumps(post_data), content_type="application/json")
+
+
+
+
+
+
+
+
+
+
+
