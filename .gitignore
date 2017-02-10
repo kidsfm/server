@@ -23,4 +23,4 @@ migrations
 
 # secret files (authentication, DB, system)
 settings.py
-client_secrets.json
+_secrets/
