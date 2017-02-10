@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+# usage: python upload.py --file test/test.mp4 --noauth_local_webserver
+
 import http.client
 import httplib2
 import os
