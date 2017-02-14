@@ -25,21 +25,6 @@ class Index(View):
 
 
 
-class Flickr(View):
-	'''
-	plan to use this view to print handle post redirects from Flickr's 
-	oauth2 flow via url /oauth2/flickr/
-	'''
-	def get(self, request):
-		return HttpResponse('I am called from a get Request')
-	
-	def post(self, request):
-		post_data = request.POST
-		return HttpResponse(json.dumps(post_data), content_type="application/json")
-
-
-
-
 class Youtube(View):
 	'''
 	plan to use this view to print handle post redirects from Youtube's
