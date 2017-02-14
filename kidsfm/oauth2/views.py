@@ -25,10 +25,10 @@ class Index(View):
 
 
 
-class Instagram(View):
+class Flickr(View):
 	'''
-	plan to use this view to print handle post redirects from Instagram's 
-	oauth2 flow via url /oauth2/instagram/
+	plan to use this view to print handle post redirects from Flickr's 
+	oauth2 flow via url /oauth2/flickr/
 	'''
 	def get(self, request):
 		return HttpResponse('I am called from a get Request')
