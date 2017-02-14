@@ -62,25 +62,39 @@
 
 
 
-	<body>
+	<body id="start_nicdark_framework">
 		<!-- page container -->
 		{# page container #}
+			<div class="nicdark_site">
+	    		<div class="nicdark_site_fullwidth nicdark_clearfix">
 
-			<!-- navigation -->
-			{% include 'kidsfm/partials/_navigation.html' %}
-			<!-- end navigation -->
-			
-
-			<!-- page content -->
-			{% block content %}
-			{% endblock %}
-			<!-- end page content -->
+	    			<!-- overlay -->
+	    			<div class="nicdark_overlay"></div>
+	    			<!-- end overlay -->
 
 
-			<!-- footer -->
-			{% include 'kidsfm/partials/_footer.html' %}
-			<!-- end footer -->
+					<!-- sidebar -->
+					{% include 'kidsfm/partials/_sidebar.html' %}
+					<!-- end sidebar -->
 
+
+					<!-- navigation -->
+					{% include 'kidsfm/partials/_navigation.html' %}
+					<!-- end navigation -->
+					
+
+					<!-- page content -->
+					{% block content %}
+					{% endblock %}
+					<!-- end page content -->
+
+
+					<!-- footer -->
+					{% include 'kidsfm/partials/_footer.html' %}
+					<!-- end footer -->
+
+				</div>
+			</div>
 		{# end page container #}
 		<!-- end page container -->
 		
