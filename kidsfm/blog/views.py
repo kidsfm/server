@@ -4,7 +4,7 @@ from django.template	import loader
 
 def Index(request):
 	"""
-	Article index recheale from /blog/ URL
+	Article index recheable from /blog/ URL
 	"""
 	template 	= loader.get_template('blog/index.html')
 	context 	= {}
@@ -13,7 +13,7 @@ def Index(request):
 
 def Article(request, article_slug):
 	'''
-	Single article index recheale from /blog/<article-slug> URL
+	Single article recheable from /blog/<article-slug> URL
 	'''
 	template 	= loader.get_template('blog/post.html')
 	context 	= {}
