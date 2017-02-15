@@ -47,6 +47,14 @@ urlpatterns = [
     #                            name='404'
     #),
 
+    # /contact
+    url(r'^contact/$',          TemplateView.as_view(
+                                                template_name='kidsfm/contact.html', 
+                                                content_type="text/html"
+                                ),
+                                name='contact'
+    ),
+
     # /mission
     url(r'^mission/$',          TemplateView.as_view(
                                                 template_name='kidsfm/mission_statements.html', 
