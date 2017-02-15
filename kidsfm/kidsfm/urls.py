@@ -63,8 +63,8 @@ urlpatterns = [
                                 name='mission_statements'
     ),
 
-    # /mission/{statement_slug}
-    url(r'^mission/(\w+)/$',    TemplateView.as_view(
+    # /mission/<mission-slug>
+    url(r'^mission/(?P<mission_slug>[\w\-]+)/$',    TemplateView.as_view(
                                                 template_name='kidsfm/mission_single.html', 
                                                 content_type="text/html"
                                 ),
