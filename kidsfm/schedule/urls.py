@@ -3,5 +3,10 @@ from . 					import views
 
 
 urlpatterns = [
-	url(r'^$', views.index, name='index'),
+
+	# /schedule/
+	url(r'^$', 								views.Index, 	name='index'),
+
+	# /schedule/<program-slug>
+	url(r'^(?P<program_slug>[\w\-]+)/$', 	views.Program, 	name='program'),
 ]
