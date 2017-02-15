@@ -3,5 +3,15 @@ from . 					import views
 
 
 urlpatterns = [
-	url(r'^$', views.index, name='index'),
+
+	# /blog/
+	url(r'^$', 								views.Index, 	name='index'),
+
+	# /blog/<article-slug>
+	url(r'^(?P<article_slug>[\w\-]+)/$', 	views.Article, 	name='article'),
 ]
+
+
+
+
+
