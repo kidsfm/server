@@ -55,6 +55,28 @@ urlpatterns = [
                                 name='contact'
     ),
 
+    # /listen
+    #
+    #    ToDo: 
+    #    - implement the listen route
+    #url(r'^listen/$',            TemplateView.as_view(
+    #                                            template_name='kidsfm/listen.html', 
+    #                                            content_type="text/html"
+    #                            ),
+    #                            name='listen'
+    #),
+
+    # /media
+    #
+    #    ToDo: 
+    #    - implement the media route
+    #url(r'^media/$',            TemplateView.as_view(
+    #                                            template_name='kidsfm/media.html', 
+    #                                            content_type="text/html"
+    #                            ),
+    #                            name='media'
+    #),
+
     # /mission
     url(r'^mission/$',          TemplateView.as_view(
                                                 template_name='kidsfm/mission_statements.html', 
