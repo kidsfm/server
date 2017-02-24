@@ -29,6 +29,9 @@ class Interests(models.Model):
 	'''
 	label		= models.CharField(max_length=50)
 
+	def __str__(self):
+		return self.label
+
 
 
 class Member(models.Model):
@@ -63,6 +66,9 @@ class Member(models.Model):
 
 	media_url		= models.URLField(max_length=200)
 	portfolio_url	= models.URLField(max_length=200)
+
+	def __str__(self):
+		return '%s %s %s' % (self.first_name, self.middle_name ,self.last_name)
 
 
 
