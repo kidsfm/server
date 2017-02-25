@@ -1,4 +1,5 @@
-from django.db import models
+from django.db 	import models
+from django 	import forms
 
 
 
@@ -45,30 +46,68 @@ class Member(models.Model):
 	last_name		= models.CharField(max_length=100)
 	bio				= models.TextField()
 	profile_img		= models.ImageField(
-										upload_to='/profile_images/'
+										upload_to='img/profile/'
 									)
 
 	# ToDo:
 	# - implement minimum & maximum interest for each Member
 	# - see: http://stackoverflow.com/a/15096984
-	intrests		= models.ForeignKey(
-										Interests,
-										on_delete=models.CASCADE
-									)
+	interests		= models.ManyToManyField(Interests)
+
+
 
 	# ToDo:
-	# - should role be a OneToOneField instead?
+	# - should role be a OneToOneField or ManyToManyField?
 	# - see: https://docs.djangoproject.com/en/1.10/ref/models/fields/#onetoonefield
-	role 			= models.ForeignKey(
-										Role,
-										on_delete=models.CASCADE
-									)
+	role 			= models.ManyToManyField(Role)
 
 	media_url		= models.URLField(max_length=200)
 	portfolio_url	= models.URLField(max_length=200)
 
+
+
+
 	def __str__(self):
 		return '%s %s %s' % (self.first_name, self.middle_name ,self.last_name)
+
+
+	def clean_interests(self):
+	    """
+	    Check if there are at most 5 interests
+	    """
+	    # fetch data that was submitted
+	    data = self.cleaned_data['interests']
+
+	    # Debug
+	    print('user[%s] has %s interests' % (self.first_name, self.interests.count()) )
+
+	    # verify that there aren't more than 5
+	    if data.count() > 5:
+	        raise forms.ValidationError(
+	        						"A member can have at most 5 interests!",
+	        						code='invalid'
+	        						)
+	    # else return data
+	    return data
+
+
+
+
+
+# On: validating that interests < 5
+# see: http://stackoverflow.com/a/20230270
+#
+#from django.db.models.signals import m2m_changed
+#from django.core.exceptions import ValidationError
+#
+#
+#def interests_changed(sender, **kwargs):
+#    if kwargs['instance'].interests.count() > 5:
+#        raise ValidationError("You can't assign more than 5 interests")
+#
+#
+#m2m_changed.connect(interests_changed, sender=Member.interests.through)
+
 
 
 
