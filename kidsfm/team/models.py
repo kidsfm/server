@@ -14,7 +14,7 @@ class Member(models.Model):
 	bio				= models.TextField()
 	profile_img		= models.ImageField(upload_to='img/profile/')
 	interests		= models.ManyToManyField('Interests')
-	role 			= models.ManyToManyField('Role')
+	role 			= models.ForeignKey('Role', on_delete=models.CASCADE, default=0)
 	media_url		= models.URLField(max_length=200)
 	portfolio_url	= models.URLField(max_length=200)
 
@@ -48,6 +48,7 @@ class Interests(models.Model):
 	defines possible interests for a Member object of the Team app
 	'''
 	label		= models.CharField(max_length=50)
+	description = models.CharField(max_length=200,blank=True)
 
 	def __str__(self):
 		return self.label
