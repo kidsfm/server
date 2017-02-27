@@ -12,7 +12,12 @@ class Member(models.Model):
 	middle_name		= models.CharField(max_length=50,blank=True)
 	last_name		= models.CharField(max_length=50)
 	bio				= models.TextField()
+
+	# ToDo
+	# - find a way to overwrite profile images instead of duplicating them
+	# see: http://stackoverflow.com/a/8342249
 	profile_img		= models.ImageField(upload_to='img/team/profile')
+	
 	interests		= models.ManyToManyField('Interests')
 	role 			= models.ForeignKey('Role', on_delete=models.CASCADE, default=1)
 	email			= models.EmailField(blank=True)
