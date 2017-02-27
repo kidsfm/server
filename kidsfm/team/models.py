@@ -14,7 +14,7 @@ class Member(models.Model):
 	bio				= models.TextField()
 	profile_img		= models.ImageField(upload_to='img/profile/')
 	interests		= models.ManyToManyField('Interests')
-	role 			= models.ForeignKey('Role', on_delete=models.CASCADE, default=0)
+	role 			= models.ForeignKey('Role', on_delete=models.CASCADE, default=1)
 	media_url		= models.URLField(max_length=200)
 	portfolio_url	= models.URLField(max_length=200)
 
