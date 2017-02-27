@@ -1,63 +1,27 @@
 [
-      {
-        "model": "team.Role",
-        "pk": 1,
-        "fields": {
-          "label": "host",
-          "description": "These are the folks who host your favorite programs"
-        }
-      },
-      {
-        "model": "team.Role",
-        "pk": 2,
-        "fields": {
-          "label": "techniciam",
-          "description": "These are the folks behind the scenes making sure everything works well"
-        }
-      },
-      {
-        "model": "team.Interests",
-        "pk": 1,
-        "fields": {
-          "label": "kite surfing"
-        }
-      },
-      {
-        "model": "team.Interests",
-        "pk": 2,
-        "fields": {
-          "label": "playing guitar"
-        }
-      },
-      {
-        "model": "team.Interests",
-        "pk": 3,
-        "fields": {
-          "label": "drawing"
-        }
-      },
-      {
-        "model": "team.Interests",
+    {
+        "model": "team.member",
         "pk": 4,
         "fields": {
-          "label": "photography"
+            "first_name": "Randy",
+            "middle_name": "J",
+            "last_name": "Champagne",
+            "bio": "I am a web developer",
+            "profile_img": "img/team/profile/linkedIn_profile_1_of_1.jpg",
+            "role": 1,
+            "email": "randy@rcwd.com",
+            "portfolio": "http://www.randychampagne.com",
+            "social_media": "https://twitter.com/RandyChampagne",
+            "interests": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
         }
-      },
-      {
-        "model": "team.Interests",
-        "pk": 5,
-        "fields": {
-          "label": "web design"
-        }
-      },
-      {
-        "model": "team.Interests",
-        "pk": 6,
-        "fields": {
-          "label": "a walk on the beach"
-        }
-      },
-      {
+    },
+        {
         "model": "team.member",
         "pk": 5,
         "fields": {
