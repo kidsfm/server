@@ -1,5 +1,38 @@
 from django.contrib import admin
+from django 		import forms
 from .models		import Member, Interests
+
+
+
+class MemberAdminForm(forms.ModelForm):
+	class Meta:
+		model = Member
+		fields = '__all__'
+
+	def clean_interests(self):
+	    """
+	    Check if there are at most 5 interests
+	    """
+	    # fetch data that was submitted
+	    data = self.cleaned_data['interests']
+	    # Debug
+	    #print('user[%s] has %s interests' % (self.first_name, self.interests.count()) )
+	    # verify that there aren't more than 5
+	    if data.count() > 5:
+	        raise forms.ValidationError(
+	        						"A member can have at most 5 interests!",
+	        						code='invalid'
+	        						)
+	    # else return data
+	    return data
+
+
+class MemberAdmin(admin.ModelAdmin):
+    form = MemberAdminForm
+
+
+admin.site.register(Member, MemberAdmin)
+
 
 
 
@@ -21,4 +54,4 @@ from .models		import Member, Interests
 #
 #admin.site.register(Member, MemberAdmin)
 
-admin.site.register(Member)
+

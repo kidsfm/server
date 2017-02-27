@@ -71,25 +71,25 @@ class Member(models.Model):
 		return '%s %s %s' % (self.first_name, self.middle_name ,self.last_name)
 
 
-	def clean_interests(self):
-	    """
-	    Check if there are at most 5 interests
-	    """
-	    # fetch data that was submitted
-	    data = self.cleaned_data['interests']
-
-	    # Debug
-	    print('user[%s] has %s interests' % (self.first_name, self.interests.count()) )
-
-	    # verify that there aren't more than 5
-	    if data.count() > 5:
-	        raise forms.ValidationError(
-	        						"A member can have at most 5 interests!",
-	        						code='invalid'
-	        						)
-	    # else return data
-	    return data
-
+#	def clean_interests(self):
+#	    """
+#	    Check if there are at most 5 interests
+#	    """
+#	    # fetch data that was submitted
+#	    data = self.cleaned_data['interests']
+#
+#	    # Debug
+#	    print('user[%s] has %s interests' % (self.first_name, self.interests.count()) )
+#
+#	    # verify that there aren't more than 5
+#	    if data.count() > 5:
+#	        raise forms.ValidationError(
+#	        						"A member can have at most 5 interests!",
+#	        						code='invalid'
+#	        						)
+#	    # else return data
+#	    return data
+#
 
 
 
