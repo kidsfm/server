@@ -12,11 +12,12 @@ class Member(models.Model):
 	middle_name		= models.CharField(max_length=50,blank=True)
 	last_name		= models.CharField(max_length=50)
 	bio				= models.TextField()
-	profile_img		= models.ImageField(upload_to='img/profile/')
+	profile_img		= models.ImageField(upload_to='img/team/profile')
 	interests		= models.ManyToManyField('Interests')
 	role 			= models.ForeignKey('Role', on_delete=models.CASCADE, default=1)
-	media_url		= models.URLField(max_length=200)
-	portfolio_url	= models.URLField(max_length=200)
+	email			= models.EmailField(blank=True)
+	portfolio		= models.URLField(max_length=300,blank=True)
+	social_media	= models.URLField(max_length=300,blank=True)
 
 	def __str__(self):
 		return '%s %s %s' % (self.first_name, self.middle_name ,self.last_name)
