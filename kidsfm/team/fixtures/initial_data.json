@@ -1,0 +1,60 @@
+[
+  {
+    "model": "team.Role",
+    "pk": 1,
+    "fields": {
+      "label": "host",
+      "description": "These are the folks who host your favorite programs"
+    }
+  },
+  {
+    "model": "team.Role",
+    "pk": 2,
+    "fields": {
+      "label": "techniciam",
+      "description": "These are the folks behind the scenes making sure everything works well"
+    }
+  },
+  {
+    "model": "team.Interests",
+    "pk": 1,
+    "fields": {
+      "label": "kite surfing"
+    }
+  },
+  {
+    "model": "team.Interests",
+    "pk": 2,
+    "fields": {
+      "label": "playing guitar"
+    }
+  },
+  {
+    "model": "team.Interests",
+    "pk": 3,
+    "fields": {
+      "label": "drawing"
+    }
+  },
+  {
+    "model": "team.Interests",
+    "pk": 4,
+    "fields": {
+      "label": "photography"
+    }
+  },
+  {
+    "model": "team.Interests",
+    "pk": 5,
+    "fields": {
+      "label": "web design"
+    }
+  },
+  {
+    "model": "team.Interests",
+    "pk": 6,
+    "fields": {
+      "label": "a walk on the beach"
+    }
+  }
+]
