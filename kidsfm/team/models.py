@@ -24,19 +24,11 @@ class Member(models.Model):
 	email			= models.EmailField(blank=True)
 	portfolio		= models.URLField(max_length=300,blank=True)
 	social_media	= models.URLField(max_length=300,blank=True)
-
-	# ToDo
-	# - generate slug auto-magically
-	# see: https://docs.djangoproject.com/en/1.10/ref/models/fields/#django.db.models.SlugField
-	# see: https://docs.djangoproject.com/en/1.10/ref/contrib/admin/#django.contrib.admin.ModelAdmin.prepopulated_fields
 	slug 			= AutoSlugField(
-							#'slug', 
 							max_length=101, 
 							unique=True, 
-							#default=uuid.uuid4,
-							populate_from=('first_name','last_name')
+							populate_from=('first_name','middle_name','last_name')
 						)
-
 	def __str__(self):
 		return '%s %s %s' % (self.first_name, self.middle_name ,self.last_name)
 
