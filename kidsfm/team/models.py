@@ -1,4 +1,3 @@
-import uuid
 from django.db 						import models
 from django 						import forms
 from django_extensions.db.fields 	import AutoSlugField
