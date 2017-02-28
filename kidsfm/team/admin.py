@@ -7,9 +7,6 @@ from .models		import Member, Interests, Role
 # Config admin form for Member model
 class MemberAdmin(admin.ModelAdmin):
     form = MemberAdminForm
-    prepopulated_fields = {
-    	'slug': ('first_name', 'last_name')
-    }
     list_display = [
 		# ToDo:
 		# - enable image preview in Member admin list

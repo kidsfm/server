@@ -34,7 +34,7 @@ class Member(models.Model):
 							#'slug', 
 							max_length=101, 
 							unique=True, 
-							default=uuid.uuid4,
+							#default=uuid.uuid4,
 							populate_from=('first_name','last_name')
 						)
 
