@@ -1,29 +1,7 @@
 [
     {
         "model": "team.member",
-        "pk": 4,
-        "fields": {
-            "first_name": "Randy",
-            "middle_name": "J",
-            "last_name": "Champagne",
-            "bio": "I am a web developer",
-            "profile_img": "img/team/profile/linkedIn_profile_1_of_1.jpg",
-            "role": 1,
-            "email": "randy@rcwd.com",
-            "portfolio": "http://www.randychampagne.com",
-            "social_media": "https://twitter.com/RandyChampagne",
-            "interests": [
-                1,
-                2,
-                3,
-                4,
-                5
-            ]
-        }
-    },
-        {
-        "model": "team.member",
-        "pk": 5,
+        "pk": 1,
         "fields": {
             "first_name": "Katia",
             "middle_name": "",
@@ -34,6 +12,7 @@
             "email": "randy@rcwd.com",
             "portfolio": "http://www.randychampagne.com",
             "social_media": "https://twitter.com/RandyChampagne",
+            "slug": "Katia-Barta",
             "interests": [
                 1,
                 2,
@@ -45,7 +24,7 @@
     }, 
     {
         "model": "team.member",
-        "pk": 6,
+        "pk": 2,
         "fields": {
             "first_name": "Jenny",
             "middle_name": "",
@@ -56,6 +35,7 @@
             "email": "randy@rcwd.com",
             "portfolio": "http://www.randychampagne.com",
             "social_media": "https://twitter.com/RandyChampagne",
+            "slug": "Jenny-Grey",
             "interests": [
                 1,
                 2,
@@ -67,7 +47,7 @@
     },         
     {
         "model": "team.member",
-        "pk": 7,
+        "pk": 3,
         "fields": {
             "first_name": "Lara",
             "middle_name": "",
@@ -78,6 +58,7 @@
             "email": "randy@rcwd.com",
             "portfolio": "http://www.randychampagne.com",
             "social_media": "https://twitter.com/RandyChampagne",
+            "slug": "Lara-Still",
             "interests": [
                 1,
                 2,
@@ -89,7 +70,7 @@
     },         
     {
         "model": "team.member",
-        "pk": 8,
+        "pk": 4,
         "fields": {
             "first_name": "John",
             "middle_name": "",
@@ -100,6 +81,7 @@
             "email": "randy@rcwd.com",
             "portfolio": "http://www.randychampagne.com",
             "social_media": "https://twitter.com/RandyChampagne",
+            "slug": "John-Smith",
             "interests": [
                 1,
                 2,
@@ -111,7 +93,7 @@
     },
     {
         "model": "team.member",
-        "pk": 9,
+        "pk": 5,
         "fields": {
             "first_name": "Juliette",
             "middle_name": "",
@@ -122,6 +104,7 @@
             "email": "randy@rcwd.com",
             "portfolio": "http://www.randychampagne.com",
             "social_media": "https://twitter.com/RandyChampagne",
+            "slug": "Juliette-Light",
             "interests": [
                 1,
                 2,
@@ -133,7 +116,7 @@
     },         
     {
         "model": "team.member",
-        "pk": 10,
+        "pk": 6,
         "fields": {
             "first_name": "Margaret",
             "middle_name": "",
@@ -144,6 +127,7 @@
             "email": "randy@rcwd.com",
             "portfolio": "http://www.randychampagne.com",
             "social_media": "https://twitter.com/RandyChampagne",
+            "slug": "Margaret-Grey",
             "interests": [
                 1,
                 2,
@@ -155,7 +139,7 @@
     },
     {
         "model": "team.member",
-        "pk": 11,
+        "pk": 7,
         "fields": {
             "first_name": "Nick",
             "middle_name": "",
@@ -166,6 +150,7 @@
             "email": "randy@rcwd.com",
             "portfolio": "http://www.randychampagne.com",
             "social_media": "https://twitter.com/RandyChampagne",
+            "slug": "Nick-Hope",
             "interests": [
                 1,
                 2,
@@ -177,7 +162,7 @@
     },
     {
         "model": "team.member",
-        "pk": 12,
+        "pk": 8,
         "fields": {
             "first_name": "Jean",
             "middle_name": "",
@@ -188,6 +173,7 @@
             "email": "randy@rcwd.com",
             "portfolio": "http://www.randychampagne.com",
             "social_media": "https://twitter.com/RandyChampagne",
+            "slug": "Jean-Grey",
             "interests": [
                 1,
                 2,

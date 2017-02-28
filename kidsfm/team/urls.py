@@ -4,9 +4,12 @@ from . 					import views
 
 urlpatterns = [
 
-	# /team/
-	url(r'^$', 								views.Index, 	name='index'),
+	# html: /team/
+	url(r'^$', 									views.Index, 		name='index'),
 
-	# /team/<member-slug>
-	url(r'^(?P<member_slug>[\w\-]+)/$', 	views.Member, 	name='member'),
+	# html: /team/members/<member-slug>
+	url(r'^members/(?P<member_slug>[\w\-]+)/$', views.Members, 	name='member'),
+
+	# json: /team/members
+	url(r'^members/?(?P<query>[\w\-]+)/$', 	views.Members_json, name='members_json'),
 ]

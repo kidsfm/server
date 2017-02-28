@@ -59,7 +59,7 @@
       },
       {
         "model": "team.member",
-        "pk": 5,
+        "pk": 1,
         "fields": {
             "first_name": "Katia",
             "middle_name": "",
@@ -81,7 +81,7 @@
     }, 
     {
         "model": "team.member",
-        "pk": 6,
+        "pk": 2,
         "fields": {
             "first_name": "Jenny",
             "middle_name": "",
@@ -103,7 +103,7 @@
     },         
     {
         "model": "team.member",
-        "pk": 7,
+        "pk": 3,
         "fields": {
             "first_name": "Lara",
             "middle_name": "",
@@ -125,7 +125,7 @@
     },         
     {
         "model": "team.member",
-        "pk": 8,
+        "pk": 4,
         "fields": {
             "first_name": "John",
             "middle_name": "",
@@ -147,7 +147,7 @@
     },
     {
         "model": "team.member",
-        "pk": 9,
+        "pk": 5,
         "fields": {
             "first_name": "Juliette",
             "middle_name": "",
@@ -169,7 +169,7 @@
     },         
     {
         "model": "team.member",
-        "pk": 10,
+        "pk": 6,
         "fields": {
             "first_name": "Margaret",
             "middle_name": "",
@@ -191,7 +191,7 @@
     },
     {
         "model": "team.member",
-        "pk": 11,
+        "pk": 7,
         "fields": {
             "first_name": "Nick",
             "middle_name": "",
@@ -213,7 +213,7 @@
     },
     {
         "model": "team.member",
-        "pk": 12,
+        "pk": 8,
         "fields": {
             "first_name": "Jean",
             "middle_name": "",
