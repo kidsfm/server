@@ -1,15 +1,24 @@
 from django.conf.urls	import url
-from . 					import views
+from .views 			import Index, Members, Members_json
 
 
 urlpatterns = [
 
-	# html: /team/
-	url(r'^$', 									views.Index, 		name='index'),
+	# /team/
+	# returns an HTML page with an index of team.Member objects
+	url(r'^$', 									Index, 		name='index'),
 
-	# html: /team/members/<member-slug>
-	url(r'^members/(?P<member_slug>[\w\-]+)/$', views.Members, 	name='member'),
 
-	# json: /team/members
-	url(r'^members/?(?P<query>[\w\-]+)/$', 	views.Members_json, name='members_json'),
+	# /team/members/<member-slug>
+	# returns an HTML page with details of a single team.Member object
+	url(r'^members/(?P<member_slug>[\w\-]+)/$', Members, 		name='member'),
+
+
+	# /team/members?<query>
+	# returns serialized JSON data. enables client to filter team.Member objects
+	#url(r'^members?(?P<query>[\w\=\&]+)$', 		Members_json.as_view(), name='members_json'),
+	url(r'^members/$', 		Members_json.as_view(), name='members_json'),
 ]
+
+
+
