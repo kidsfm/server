@@ -1,4 +1,3 @@
-import json
 from django.http			import HttpResponse
 from django.template		import loader
 from django.views.generic	import View
@@ -20,9 +19,9 @@ def Index(request):
 
 def Members(request, member_slug):
 	'''
-	URL:	/team/members/<member-slug>
-	Desc:	returns an HTML page with details of a single team.Member object
+	Returns an HTML page with details of a single team.Member object.
 
+	URL:	/team/members/<member-slug>
 
 	ToDo:
 	- implement this
@@ -35,31 +34,30 @@ def Members(request, member_slug):
 
 class Members_json(View):
 	'''
-	URL: 	/team/members?<query>
-	Returns serialized JSON data. enables client to filter team.Member objects via URL-encoded queries.
+	Returns serialized JSON data enabling client to filter team.Member objects via URL-encoded queries.
+
+	URL: 	/team/members?<q1=arg1&q2=arg2>
 
 	ToDo:
-	- this view should simply return JSON data to the an Angular controller
+	- validate query & send "bad format" status code if invalid
 	'''
 	def get(self, request):
 
-		# fetch query from body
-		#query = request.GET['query']
-		query = 'role=1&offset=0&limit=4'
+		# fetch query params
+		q_dict = dict()
+		q_dict['role'] 		= request.GET.get('role', None)
+		q_dict['offset'] 	= request.GET.get('offset', None)
+		q_dict['limit'] 	= request.GET.get('limit', None)
 
 		# Debug
-		print('Now in team.views.Members_json.get')
-		print('query is: ', query)
-		
-		# init member list
-		member_list = []
+		#print('\tNow in team.views.Members_json.get')
+		#print('\tquery is: %s' % (q_dict,))
 
+		
 		# fetch data
-		members = fetch_member_data(query)
+		members = fetch_member_data(q_dict)
 
 		# serialize & return data
-		#for member in members:
-		#	member_list.append(member)
 		data = serializers.serialize(
 										'json', 
 										list(members), 
@@ -86,7 +84,7 @@ def fetch_member_data(query):
 	Helper function that fetches data using filters defined in query.
 
 	ToDo:
-	- this view should simply queries the DB using provided filters and returns Python data
+	- join Interests & Role models in DB lookup
 
 	See: 
 	- https://docs.djangoproject.com/en/1.10/topics/db/queries/#retrieving-specific-objects-with-filters
@@ -94,36 +92,33 @@ def fetch_member_data(query):
 	- http://www.nomadjourney.com/2009/04/dynamic-django-queries-with-kwargs/
 	'''
 
-	# de-serialize query into a dictionary
-	q_dict = dict(item.split("=") for item in query.split("&"))
-
-
-	# fetch query components to construct keyword args dict
+	# fetch role
 	kwargs = dict()
-	# first name
 	try:
-		kwargs['first_name__icontains'] = q_dict['fname__icontains']
-	except:
-		pass
-	# middle name
-	try:
-		kwargs['middle_name__icontains'] = q_dict['mname']
-	except:
-		pass
-	# last name
-	try:
-		kwargs['last_name__icontains'] = q_dict['lname']
-	except:
-		pass
-	# role
-	try:
-		kwargs['role'] = int(q_dict['lname'])
+		kwargs['role'] = int(query['role'])
 	except:
 		pass
 	
 
 	# fetch data from DB
 	members = Member.objects.filter( **kwargs )
+
+
+	# apply offset
+	try:
+		offset = int(query['offset'])
+		members = members[offset:]
+	except:
+		pass
+		
+
+	# apply limit
+	try:
+		limit = int(query['limit'])
+		members = members[:limit]
+	except:
+		pass
+
 
 
 	# return results
