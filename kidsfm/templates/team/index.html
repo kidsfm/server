@@ -35,187 +35,74 @@
 
 
 
+    {# if there is no Role data#}
+        <!-- ToDo:
+            - write something informing user that there is no Member data in DB
+        -->
+    {# end if there is no Role data#}
+    {# else #}
+        {# for each Role object #}
 
-    {# group 1 #}
-    <!--start section-->
-    <section class="nicdark_section">
-        <!--start nicdark_container-->
-        <div class="nicdark_container nicdark_clearfix">
-            <div class="nicdark_space50"></div>
-            <div class="grid grid_12">
-                <h1 class="subtitle greydark">Hosts</h1>
-                <div class="nicdark_space20"></div>
-                <h3 class="subtitle grey">These are the folks who host your favorite programs</h3>
-                <div class="nicdark_space20"></div>
-                <div class="nicdark_divider left big"><span class="nicdark_bg_blue nicdark_radius"></span></div>
-                <div class="nicdark_space10"></div>
-            </div>
-            <div class="grid grid_3">
-                <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow center">
-                    <img class="nicdark_opacity" alt="" src="{% static "kidsfm/img/team/img1.jpg" %}">
-                    <div class="nicdark_textevidence nicdark_bg_blue">
-                        <h5 class="white nicdark_margin20">KATIA BARTA</h5>
-                        <i class="icon-brush nicdark_iconbg right medium blue"></i>
-                    </div>
-                    <div class="nicdark_textevidence">
-                        <div class="nicdark_margin20">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt rutrum sapien.</p>
-                            <div class="nicdark_space20 nicdark_displaynone_ipadpotr"></div>
-                            <a title="Videos" href="/team/test-member/" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip nicdark_bg_blue medium nicdark_shadow nicdark_radius_circle white nicdark_margin010"><i class="icon-youtube-play nicdark_rotate"></i></a>
-                            <a title="Portfolio" href="/team/test-member/" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip nicdark_bg_blue medium nicdark_shadow nicdark_radius_circle white nicdark_margin010"><i class="icon-globe-outline nicdark_rotate"></i></a>
-                        </div>
-                    </div>
+        {% for role in roles.all %}
+        <!--start section-->
+        <section class="nicdark_section">
+            <!--start nicdark_container-->
+            <div class="nicdark_container nicdark_clearfix">
+                <div class="nicdark_space50"></div>
+
+                {# Role object details #}
+                <div class="grid grid_12">
+                    <h1 class="subtitle greydark">{{ role.label | capfirst }}</h1>
+                    <div class="nicdark_space20"></div>
+                    <h3 class="subtitle grey">{{ role.description | capfirst }}</h3>
+                    <div class="nicdark_space20"></div>
+                    <div class="nicdark_divider left big"><span class="nicdark_bg_blue nicdark_radius"></span></div>
+                    <div class="nicdark_space10"></div>
                 </div>
-            </div>
-            <div class="grid grid_3">
-                <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow center">
-                    <img class="nicdark_opacity" alt="" src="{% static "kidsfm/img/team/img2.jpg" %}">
-                    <div class="nicdark_textevidence nicdark_bg_yellow">
-                        <h5 class="white nicdark_margin20">JENNY GREY</h5>
-                        <i class="icon-music-outline nicdark_iconbg right medium yellow"></i>
-                    </div>
-                    <div class="nicdark_textevidence">
-                        <div class="nicdark_margin20">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt rutrum sapien.</p>
-                            <div class="nicdark_space20 nicdark_displaynone_ipadpotr"></div>
-                            <a title="Videos" href="/team/test-member/" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip nicdark_bg_yellow medium nicdark_shadow nicdark_radius_circle white nicdark_margin010"><i class="icon-youtube-play nicdark_rotate"></i></a>
-                            <a title="Portfolio" href="/team/test-member/" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip nicdark_bg_yellow medium nicdark_shadow nicdark_radius_circle white nicdark_margin010"><i class="icon-globe-outline nicdark_rotate"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="grid grid_3">
-                <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow center">
-                    <img class="nicdark_opacity" alt="" src="{% static "kidsfm/img/team/img3.jpg" %}">
-                     <div class="nicdark_textevidence nicdark_bg_orange">
-                        <h5 class="white nicdark_margin20">LARA STILL</h5>
-                        <i class="icon-dribbble nicdark_iconbg right medium orange"></i>
-                    </div>
-                    <div class="nicdark_textevidence">
-                        <div class="nicdark_margin20">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt rutrum sapien.</p>
-                            <div class="nicdark_space20 nicdark_displaynone_ipadpotr"></div>
-                            <a title="Videos" href="/team/test-member/" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip nicdark_bg_orange medium nicdark_shadow nicdark_radius_circle white nicdark_margin010"><i class="icon-youtube-play nicdark_rotate"></i></a>
-                            <a title="Portfolio" href="/team/test-member/" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip nicdark_bg_orange medium nicdark_shadow nicdark_radius_circle white nicdark_margin010"><i class="icon-globe-outline nicdark_rotate"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="grid grid_3">
-                <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow center">
-                    <img class="nicdark_opacity" alt="" src="{% static "kidsfm/img/team/img4.jpg" %}">
-                     <div class="nicdark_textevidence nicdark_bg_red">
-                        <h5 class="white nicdark_margin20">JOHN SMITH</h5>
-                        <i class="icon-tree-1 nicdark_iconbg right medium red"></i>
-                    </div>
-                    <div class="nicdark_textevidence">
-                        <div class="nicdark_margin20">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt rutrum sapien.</p>
-                            <div class="nicdark_space20 nicdark_displaynone_ipadpotr"></div>
-                            <a title="Videos" href="/team/test-member/" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip nicdark_bg_red medium nicdark_shadow nicdark_radius_circle white nicdark_margin010"><i class="icon-youtube-play nicdark_rotate"></i></a>
-                            <a title="Portfolio" href="/team/test-member/" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip nicdark_bg_red medium nicdark_shadow nicdark_radius_circle white nicdark_margin010"><i class="icon-globe-outline nicdark_rotate"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="nicdark_space50"></div>
-        </div>
-        <!--end nicdark_container-->
-    </section>
-    <!--end section-->
-    {# end group 1 #}
 
 
+                {# Member object details #}
+                {% for member in members.all %}
+                    {% if member.role.id == role.id %}
+                    <div class="grid grid_3">
+                        <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow center">
+                            <a href="/team/members/{{ member.slug }}/">
+                                <img class="nicdark_opacity" 
+                                     alt="{{ member.first_name | add:' ' | capfirst }}{{ member.middle_name | add:' ' | capfirst }}{{ member.last_name | add:' ' | capfirst }}profile image" 
+                                     src="{{ member.profile_img.url }}"
+                                >
+                            </a>
+                            <div class="nicdark_textevidence nicdark_bg_blue">
+                                <h5 class="white nicdark_margin20">
+                                    {{ member.first_name | add:' ' | capfirst }}
+                                    {{ member.middle_name | add:' ' | capfirst }}
+                                    {{ member.last_name | add:' ' | capfirst }}
+                                </h5>
+                                <i class="icon-brush nicdark_iconbg right medium blue"></i>
+                            </div>
+                            <div class="nicdark_textevidence">
+                                <div class="nicdark_margin20">
+                                    <p>{{ member.bio }}</p>
+                                    <div class="nicdark_space20 nicdark_displaynone_ipadpotr"></div>
+                                    <a title="Email" href="mailto:{{ member.email }}" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip nicdark_bg_blue medium nicdark_shadow nicdark_radius_circle white nicdark_margin010"><i class="icon-mail nicdark_rotate"></i></a>
+                                    <a title="Portfolio" href="{{ member.portfolio }}" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip nicdark_bg_blue medium nicdark_shadow nicdark_radius_circle white nicdark_margin010"><i class="icon-globe-outline nicdark_rotate"></i></a>
+                                    <a title="Social Media" href="{{ member.social_media }}" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip nicdark_bg_blue medium nicdark_shadow nicdark_radius_circle white nicdark_margin010"><i class="icon-youtube-play nicdark_rotate"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+                {# end Member object details #}
 
-    {# group 2 #}
-    <!--start section-->
-    <section class="nicdark_section">
-        <!--start nicdark_container-->
-        <div class="nicdark_container nicdark_clearfix">
-            <div class="nicdark_space50"></div>
-            <div class="grid grid_12">
-                <h1 class="subtitle greydark">Technicians</h1>
-                <div class="nicdark_space20"></div>
-                <h3 class="subtitle grey">These are the folks behind the scenes making sure everything works well</h3>
-                <div class="nicdark_space20"></div>
-                <div class="nicdark_divider left big"><span class="nicdark_bg_blue nicdark_radius"></span></div>
-                <div class="nicdark_space10"></div>
+                <div class="nicdark_space50"></div>
             </div>
-            <div class="grid grid_3">
-                <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow center">
-                    <img class="nicdark_opacity" alt="" src="{% static "kidsfm/img/team/img5.jpg" %}">
-                     <div class="nicdark_textevidence nicdark_bg_blue">
-                        <h5 class="white nicdark_margin20">JULIETTE LIGHT</h5>
-                        <i class="icon-brush nicdark_iconbg right medium blue"></i>
-                    </div>
-                    <div class="nicdark_textevidence">
-                        <div class="nicdark_margin20">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt rutrum sapien.</p>
-                            <div class="nicdark_space20 nicdark_displaynone_ipadpotr"></div>
-                            <a title="Videos" href="/team/test-member/" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip nicdark_bg_blue medium nicdark_shadow nicdark_radius_circle white nicdark_margin010"><i class="icon-youtube-play nicdark_rotate"></i></a>
-                            <a title="Portfolio" href="/team/test-member/" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip nicdark_bg_blue medium nicdark_shadow nicdark_radius_circle white nicdark_margin010"><i class="icon-globe-outline nicdark_rotate"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="grid grid_3">
-                <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow center">
-                    <img class="nicdark_opacity" alt="" src="{% static "kidsfm/img/team/img6.jpg" %}">
-                     <div class="nicdark_textevidence nicdark_bg_yellow">
-                        <h5 class="white nicdark_margin20">MARGARET GREY</h5>
-                        <i class="icon-music-outline nicdark_iconbg right medium yellow"></i>
-                    </div>
-                    <div class="nicdark_textevidence">
-                        <div class="nicdark_margin20">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt rutrum sapien.</p>
-                            <div class="nicdark_space20 nicdark_displaynone_ipadpotr"></div>
-                            <a title="Videos" href="/team/test-member/" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip nicdark_bg_yellow medium nicdark_shadow nicdark_radius_circle white nicdark_margin010"><i class="icon-youtube-play nicdark_rotate"></i></a>
-                            <a title="Portfolio" href="/team/test-member/" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip nicdark_bg_yellow medium nicdark_shadow nicdark_radius_circle white nicdark_margin010"><i class="icon-globe-outline nicdark_rotate"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="grid grid_3">
-                <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow center">
-                    <img class="nicdark_opacity" alt="" src="{% static "kidsfm/img/team/img7.jpg" %}">
-                     <div class="nicdark_textevidence nicdark_bg_orange">
-                        <h5 class="white nicdark_margin20">NICK HOPE</h5>
-                        <i class="icon-dribbble nicdark_iconbg right medium orange"></i>
-                    </div>
-                    <div class="nicdark_textevidence">
-                        <div class="nicdark_margin20">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt rutrum sapien.</p>
-                            <div class="nicdark_space20 nicdark_displaynone_ipadpotr"></div>
-                            <a title="Videos" href="/team/test-member/" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip nicdark_bg_orange medium nicdark_shadow nicdark_radius_circle white nicdark_margin010"><i class="icon-youtube-play nicdark_rotate"></i></a>
-                            <a title="Portfolio" href="/team/test-member/" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip nicdark_bg_orange medium nicdark_shadow nicdark_radius_circle white nicdark_margin010"><i class="icon-globe-outline nicdark_rotate"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="grid grid_3">
-                <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow center">
-                    <img class="nicdark_opacity" alt="" src="{% static "kidsfm/img/team/img8.jpg" %}">
-                     <div class="nicdark_textevidence nicdark_bg_red">
-                        <h5 class="white nicdark_margin20">MARGARET GREY</h5>
-                        <i class="icon-tree-1 nicdark_iconbg right medium red"></i>
-                    </div>
-                    <div class="nicdark_textevidence">
-                        <div class="nicdark_margin20">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt rutrum sapien.</p>
-                            <div class="nicdark_space20 nicdark_displaynone_ipadpotr"></div>
-                            <a title="Videos" href="/team/test-member/" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip nicdark_bg_red medium nicdark_shadow nicdark_radius_circle white nicdark_margin010"><i class="icon-youtube-play nicdark_rotate"></i></a>
-                            <a title="Portfolio" href="/team/test-member/" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip nicdark_bg_red medium nicdark_shadow nicdark_radius_circle white nicdark_margin010"><i class="icon-globe-outline nicdark_rotate"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="nicdark_space50"></div>
-        </div>
-        <!--end nicdark_container-->
-    </section>
-    <!--end section-->
-    {# end group 2 #}
-    
+            <!--end nicdark_container-->
+        </section>
+        <!--end section-->
+        {% endfor %}
 
+        {# end for each Role object #}
+    {# end else #}
 
 {% endblock %}
