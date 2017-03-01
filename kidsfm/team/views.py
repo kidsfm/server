@@ -39,7 +39,9 @@ class Members_json(View):
 	'''
 	Returns serialized JSON data enabling client to filter team.Member objects via URL-encoded queries.
 
-	URL: 	/team/members?<q1=arg1&q2=arg2>
+	URL: 	
+	- /team/members/
+	- /team/members?<q1=arg1&q2=arg2>
 
 	ToDo:
 	- validate query & send "bad format" status code if invalid
@@ -125,7 +127,9 @@ class Interests_json(View):
 	'''
 	Returns serialized JSON data enabling client to filter team.Interest objects via URL-encoded queries.
 
-	URL: 	/team/interests?<q1=arg1&q2=arg2>
+	URL: 	
+	- /team/interests/
+	- /team/interests?<q1=arg1&q2=arg2>
 
 	ToDo:
 	- validate query & send "bad format" status code if invalid
@@ -178,6 +182,68 @@ def fetch_interest_data(query):
 
 	# return data
 	return interests
+
+
+
+class Roles_json(View):
+	'''
+	Returns serialized JSON data enabling client to filter team.Role objects via URL-encoded queries.
+
+	URL: 	
+	- /team/roles/
+	- /team/roles?<q1=arg1&q2=arg2>
+
+	ToDo:
+	- validate query & send "bad format" status code if invalid
+	'''
+	def get(self, request):
+
+		# fetch query params
+		q_dict = dict()
+		q_dict['id'] 		= request.GET.get('id', None)
+		q_dict['label'] 	= request.GET.get('label', None)
+
+		# fetch data
+		interest_data = fetch_interest_data(q_dict)
+
+		# serialize & return data
+		data = serializers.serialize(
+										'json', 
+										list(interest_data), 
+										fields=(
+													'label',
+													'description'
+												)
+									)
+		return HttpResponse(data, content_type="application/json")
+
+
+
+def fetch_role_data(query):
+	'''
+	Helper function that queries the DB for role objects using filters defined in query.
+	'''
+
+	# fetch id
+	kwargs = dict()
+	try:
+		kwargs['pk'] = int(query['id'])
+	except:
+		pass
+
+	# fetch label
+	try:
+		if query['label'] is not None:
+			kwargs['label__icontains'] = query['label']
+	except:
+		pass
+
+	# fetch Role data from DB
+	roles = Role.objects.filter( **kwargs )
+
+
+	# return data
+	return roles
 	
 	
 

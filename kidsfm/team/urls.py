@@ -1,5 +1,5 @@
 from django.conf.urls	import url
-from .views 			import Index, Members, Members_json, Interests_json
+from .views 			import Index, Members, Members_json, Interests_json, Roles_json
 
 
 urlpatterns = [
@@ -20,6 +20,7 @@ urlpatterns = [
 	),
 
 
+	# /team/members/
 	# /team/members?<q1=arg1&q2=arg2>
 	url(
 			r'^members/$',
@@ -28,11 +29,21 @@ urlpatterns = [
 	),
 
 
+	# /team/interests/
 	# /team/interests?<q1=arg1&q2=arg2>
 	url(
 			r'^interests/$',
 			Interests_json.as_view(),
 			name='interests_json'
+	),
+
+
+	# /team/roles/
+	# /team/roles?<q1=arg1&q2=arg2>
+	url(
+			r'^roles/$',
+			Roles_json.as_view(),
+			name='roles_json'
 	),
 ]
 
