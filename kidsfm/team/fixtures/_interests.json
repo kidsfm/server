@@ -1,41 +1,41 @@
 [
   {
-    "model": "team.Interests",
+    "model": "team.Interest",
     "pk": 1,
     "fields": {
       "label": "kite surfing"
     }
   },
   {
-    "model": "team.Interests",
+    "model": "team.Interest",
     "pk": 2,
     "fields": {
       "label": "playing guitar"
     }
   },
   {
-    "model": "team.Interests",
+    "model": "team.Interest",
     "pk": 3,
     "fields": {
       "label": "drawing"
     }
   },
   {
-    "model": "team.Interests",
+    "model": "team.Interest",
     "pk": 4,
     "fields": {
       "label": "photography"
     }
   },
   {
-    "model": "team.Interests",
+    "model": "team.Interest",
     "pk": 5,
     "fields": {
       "label": "web design"
     }
   },
   {
-    "model": "team.Interests",
+    "model": "team.Interest",
     "pk": 6,
     "fields": {
       "label": "a walk on the beach"

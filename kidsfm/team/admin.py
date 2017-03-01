@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .forms 		import MemberAdminForm
-from .models		import Member, Interests, Role
+from .models		import Member, Interest, Role
 
 
 
@@ -35,14 +35,14 @@ admin.site.register(Role, RoleAdmin)
 
 
 # Config admin form for Member model
-class InterestsAdmin(admin.ModelAdmin):
+class InterestAdmin(admin.ModelAdmin):
     list_display = [
     	'label',
     	'description',
     ]
 
-# Register Interests model and admin form
-admin.site.register(Interests, InterestsAdmin)
+# Register Interest model and admin form
+admin.site.register(Interest, InterestAdmin)
 
 
 

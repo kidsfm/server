@@ -19,7 +19,7 @@ class Member(models.Model):
 	# see: http://stackoverflow.com/a/8342249
 	profile_img		= models.ImageField(upload_to='img/team/profile')
 
-	interests		= models.ManyToManyField('Interests')
+	interest		= models.ManyToManyField('Interest')
 	role 			= models.ForeignKey('Role', on_delete=models.CASCADE, default=1)
 	email			= models.EmailField(blank=True)
 	portfolio		= models.URLField(max_length=300,blank=True)
@@ -53,10 +53,10 @@ class Role(models.Model):
 
 
 
-class Interests(models.Model):
+class Interest(models.Model):
 	'''
-	Interests model
-	defines possible interests for a Member object of the Team app
+	Interest model
+	defines possible interest for a Member object of the Team app
 	'''
 	label		= models.CharField(max_length=50)
 	description = models.CharField(max_length=200,blank=True)

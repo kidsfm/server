@@ -16,42 +16,42 @@
         }
       },
       {
-        "model": "team.Interests",
+        "model": "team.Interest",
         "pk": 1,
         "fields": {
           "label": "kite surfing"
         }
       },
       {
-        "model": "team.Interests",
+        "model": "team.Interest",
         "pk": 2,
         "fields": {
           "label": "playing guitar"
         }
       },
       {
-        "model": "team.Interests",
+        "model": "team.Interest",
         "pk": 3,
         "fields": {
           "label": "drawing"
         }
       },
       {
-        "model": "team.Interests",
+        "model": "team.Interest",
         "pk": 4,
         "fields": {
           "label": "photography"
         }
       },
       {
-        "model": "team.Interests",
+        "model": "team.Interest",
         "pk": 5,
         "fields": {
           "label": "web design"
         }
       },
       {
-        "model": "team.Interests",
+        "model": "team.Interest",
         "pk": 6,
         "fields": {
           "label": "a walk on the beach"
@@ -71,7 +71,7 @@
             "portfolio": "http://www.randychampagne.com",
             "social_media": "https://twitter.com/RandyChampagne",
             "slug": "Katia-Barta",
-            "interests": [
+            "interest": [
                 1,
                 2,
                 3,
@@ -94,7 +94,7 @@
             "portfolio": "http://www.randychampagne.com",
             "social_media": "https://twitter.com/RandyChampagne",
             "slug": "Jenny-Grey",
-            "interests": [
+            "interest": [
                 1,
                 2,
                 3,
@@ -117,7 +117,7 @@
             "portfolio": "http://www.randychampagne.com",
             "social_media": "https://twitter.com/RandyChampagne",
             "slug": "Lara-Still",
-            "interests": [
+            "interest": [
                 1,
                 2,
                 3,
@@ -140,7 +140,7 @@
             "portfolio": "http://www.randychampagne.com",
             "social_media": "https://twitter.com/RandyChampagne",
             "slug": "John-Smith",
-            "interests": [
+            "interest": [
                 1,
                 2,
                 3,
@@ -163,7 +163,7 @@
             "portfolio": "http://www.randychampagne.com",
             "social_media": "https://twitter.com/RandyChampagne",
             "slug": "Juliette-Light",
-            "interests": [
+            "interest": [
                 1,
                 2,
                 3,
@@ -186,7 +186,7 @@
             "portfolio": "http://www.randychampagne.com",
             "social_media": "https://twitter.com/RandyChampagne",
             "slug": "Margaret-Grey",
-            "interests": [
+            "interest": [
                 1,
                 2,
                 3,
@@ -209,7 +209,7 @@
             "portfolio": "http://www.randychampagne.com",
             "social_media": "https://twitter.com/RandyChampagne",
             "slug": "Nick-Hope",
-            "interests": [
+            "interest": [
                 1,
                 2,
                 3,
@@ -232,7 +232,7 @@
             "portfolio": "http://www.randychampagne.com",
             "social_media": "https://twitter.com/RandyChampagne",
             "slug": "Jean-Grey",
-            "interests": [
+            "interest": [
                 1,
                 2,
                 3,

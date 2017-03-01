@@ -72,7 +72,7 @@ class Members_json(View):
 													'portfolio',
 													'social_media',
 													'slug',
-													'interests'
+													'interest'
 												)
 									)
 		return HttpResponse(data, content_type="application/json")
@@ -84,7 +84,7 @@ def fetch_member_data(query):
 	Helper function that fetches data using filters defined in query.
 
 	ToDo:
-	- join Interests & Role models in DB lookup
+	- join Interest & Role models in DB lookup
 
 	See: 
 	- https://docs.djangoproject.com/en/1.10/topics/db/queries/#retrieving-specific-objects-with-filters
