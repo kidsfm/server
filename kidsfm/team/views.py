@@ -2,11 +2,12 @@ from django.http			import HttpResponse
 from django.template		import loader
 from django.views.generic	import View
 from django.core 			import serializers
+from django.shortcuts		import render
 from .models				import Member, Interest, Role
 
 
 
-def Index(request):
+class Index(View):
 	'''
 	ToDo:
 	- fetch data for each model separately
@@ -14,9 +15,89 @@ def Index(request):
 	- concatenate serialized string
 	- send combined data to client
 	'''
-	template 	= loader.get_template('team/index.html')
-	context 	= {}
-	return HttpResponse(template.render(context,request))
+	def get(self, request):
+
+		# ToDo:
+		# - fetch all data from Member model using an empty query object
+		member_data = fetch_member_data({})
+
+
+		# ToDo:
+		# - fetch all data from Interest model using an empty query object
+		interest_data = fetch_interest_data({})
+
+
+		# ToDo:
+		# - fetch all data from Role model using an empty query object
+		role_data = fetch_role_data({})
+
+
+		# ToDo:
+		# - load data in params container
+		params 				= dict()
+		params["members"]	= member_data
+		params["interests"] = interest_data
+		params["roles"] 	= role_data
+
+
+		# ToDo:
+		# - render template with data & send HTML to client
+		return render(request, 'team/index.html', params)
+
+
+
+		#######################
+		#
+		# 	Debug
+		#
+		#######################
+		#
+		## serialize member data
+		#member_json = serializers.serialize(
+		#								'json', 
+		#								list(member_data), 
+		#								fields=(
+		#											'first_name',
+		#											'middle_name',
+		#											'last_name',
+		#											'bio',
+		#											'profile_img',
+		#											'role',
+		#											'email',
+		#											'portfolio',
+		#											'social_media',
+		#											'slug',
+		#											'interest',
+		#										)
+		#							)
+		#
+		## serialize interest data
+		#interest_json = serializers.serialize(
+		#								'json', 
+		#								list(interest_data), 
+		#								fields=(
+		#											'label',
+		#											'description'
+		#										)
+		#							)
+		#
+		## serialize role data
+		#role_json = serializers.serialize(
+		#								'json', 
+		#								list(role_data), 
+		#								fields=(
+		#											'label',
+		#											'description'
+		#										)
+		#							)
+		#
+		## join json strings
+		#data = '{"members":%s,"interests":%s,"roles":%s}' % (member_json, interest_json, role_json)
+		#
+		## send data to client
+		#return HttpResponse(data, content_type="application/json")
+
+		
 
 
 

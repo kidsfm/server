@@ -7,7 +7,7 @@ urlpatterns = [
 	# /team/
 	url(
 			r'^$',
-			Index,
+			Index.as_view(),
 			name='index'
 	),
 
