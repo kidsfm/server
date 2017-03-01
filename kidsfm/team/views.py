@@ -2,7 +2,8 @@ from django.http			import HttpResponse
 from django.template		import loader
 from django.views.generic	import View
 from django.core 			import serializers
-from .models				import Member
+from itertools 				import chain
+from .models				import Member, Interest, Role
 
 
 
@@ -55,13 +56,19 @@ class Members_json(View):
 
 		
 		# fetch data
-		members = fetch_member_data(q_dict)
+		member_data = fetch_member_data(q_dict)
 
 		# serialize & return data
 		data = serializers.serialize(
 										'json', 
-										list(members), 
+										list(member_data), 
+										#fields=(
+										#			'members',
+										#			'interests',
+										#			'roles'
+										#	)
 										fields=(
+													# Member model
 													'first_name',
 													'middle_name',
 													'last_name',
@@ -72,7 +79,10 @@ class Members_json(View):
 													'portfolio',
 													'social_media',
 													'slug',
-													'interest'
+													'interest',
+													# Role & Interest model
+													'label',
+													'description'
 												)
 									)
 		return HttpResponse(data, content_type="application/json")
@@ -100,7 +110,7 @@ def fetch_member_data(query):
 		pass
 	
 
-	# fetch data from DB
+	# fetch Member data from DB
 	members = Member.objects.filter( **kwargs )
 
 
@@ -118,11 +128,22 @@ def fetch_member_data(query):
 		members = members[:limit]
 	except:
 		pass
+		
 
+	# fetch Interest data from DB
+	interests = Interest.objects.all()
+		
+
+	# fetch Interest data from DB
+	roles = Role.objects.all()
+
+
+	# bundle data into a dictionary
+	member_data = chain(members, interests, roles)
 
 
 	# return results
-	return members
+	return member_data
 	
 	
 
