@@ -2,7 +2,6 @@ from django.http			import HttpResponse
 from django.template		import loader
 from django.views.generic	import View
 from django.core 			import serializers
-from itertools 				import chain
 from .models				import Member, Interest, Role
 
 
@@ -10,7 +9,10 @@ from .models				import Member, Interest, Role
 def Index(request):
 	'''
 	ToDo:
-	- implement this
+	- fetch data for each model separately
+	- serialize data for each model separately
+	- concatenate serialized string
+	- send combined data to client
 	'''
 	template 	= loader.get_template('team/index.html')
 	context 	= {}
@@ -50,26 +52,15 @@ class Members_json(View):
 		q_dict['offset'] 	= request.GET.get('offset', None)
 		q_dict['limit'] 	= request.GET.get('limit', None)
 
-
-		# Debug
-		#print('\tNow in team.views.Members_json.get')
-		#print('\tquery is: %s' % (q_dict,))
-
-		
 		# fetch data
 		member_data = fetch_member_data(q_dict)
+
 
 		# serialize & return data
 		data = serializers.serialize(
 										'json', 
 										list(member_data), 
-										#fields=(
-										#			'members',
-										#			'interests',
-										#			'roles'
-										#	)
 										fields=(
-													# Member model
 													'first_name',
 													'middle_name',
 													'last_name',
@@ -81,9 +72,6 @@ class Members_json(View):
 													'social_media',
 													'slug',
 													'interest',
-													# Role & Interest models
-													'label',
-													'description'
 												)
 									)
 		return HttpResponse(data, content_type="application/json")
@@ -92,7 +80,7 @@ class Members_json(View):
 
 def fetch_member_data(query):
 	'''
-	Helper function that fetches data using filters defined in query.
+	Helper function that queries the DB for Member objects using filters defined in query.
 
 	See: 
 	- https://docs.djangoproject.com/en/1.10/topics/db/queries/#retrieving-specific-objects-with-filters
@@ -126,22 +114,70 @@ def fetch_member_data(query):
 		members = members[:limit]
 	except:
 		pass
-		
-
-	# fetch Interest data from DB
-	interests = Interest.objects.all()
-		
-
-	# fetch Interest data from DB
-	roles = Role.objects.all()
-
-
-	# bundle data
-	member_data = chain(members, interests, roles)
 
 
 	# return data
-	return member_data
+	return members
+
+
+
+class Interests_json(View):
+	'''
+	Returns serialized JSON data enabling client to filter team.Interest objects via URL-encoded queries.
+
+	URL: 	/team/interests?<q1=arg1&q2=arg2>
+
+	ToDo:
+	- validate query & send "bad format" status code if invalid
+	'''
+	def get(self, request):
+
+		# fetch query params
+		q_dict = dict()
+		q_dict['id'] 		= request.GET.get('id', None)
+		q_dict['label'] 	= request.GET.get('label', None)
+
+		# fetch data
+		interest_data = fetch_interest_data(q_dict)
+
+		# serialize & return data
+		data = serializers.serialize(
+										'json', 
+										list(interest_data), 
+										fields=(
+													'label',
+													'description'
+												)
+									)
+		return HttpResponse(data, content_type="application/json")
+
+
+
+def fetch_interest_data(query):
+	'''
+	Helper function that queries the DB for Interest objects using filters defined in query.
+	'''
+
+	# fetch id
+	kwargs = dict()
+	try:
+		kwargs['pk'] = int(query['id'])
+	except:
+		pass
+
+	# fetch label
+	try:
+		if query['label'] is not None:
+			kwargs['label__icontains'] = query['label']
+	except:
+		pass
+
+	# fetch Interest data from DB
+	interests = Interest.objects.filter( **kwargs )
+
+
+	# return data
+	return interests
 	
 	
 
