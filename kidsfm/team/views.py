@@ -50,6 +50,7 @@ class Members_json(View):
 		q_dict['offset'] 	= request.GET.get('offset', None)
 		q_dict['limit'] 	= request.GET.get('limit', None)
 
+
 		# Debug
 		#print('\tNow in team.views.Members_json.get')
 		#print('\tquery is: %s' % (q_dict,))
@@ -80,7 +81,7 @@ class Members_json(View):
 													'social_media',
 													'slug',
 													'interest',
-													# Role & Interest model
+													# Role & Interest models
 													'label',
 													'description'
 												)
@@ -92,9 +93,6 @@ class Members_json(View):
 def fetch_member_data(query):
 	'''
 	Helper function that fetches data using filters defined in query.
-
-	ToDo:
-	- join Interest & Role models in DB lookup
 
 	See: 
 	- https://docs.djangoproject.com/en/1.10/topics/db/queries/#retrieving-specific-objects-with-filters
@@ -138,11 +136,11 @@ def fetch_member_data(query):
 	roles = Role.objects.all()
 
 
-	# bundle data into a dictionary
+	# bundle data
 	member_data = chain(members, interests, roles)
 
 
-	# return results
+	# return data
 	return member_data
 	
 	
