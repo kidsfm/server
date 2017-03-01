@@ -138,8 +138,21 @@ urlpatterns = [
                         name='base'
     ),
 
-
 ]
+
+
+
+
+
+
+# This enables built-in dev server to serve files from MEDIA_ROOT
+# see: http://stackoverflow.com/a/38446584
+from django.conf import settings
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
 
 
 
