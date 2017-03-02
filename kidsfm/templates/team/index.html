@@ -13,7 +13,6 @@
 	<!--start section-->
     <section id="nicdark_parallax_title" class="nicdark_section nicdark_imgparallax nicdark_parallaxx_img-teachers-1">
         <div class="nicdark_filter greydark">
-            <!--start nicdark_container-->
             <div class="nicdark_container nicdark_clearfix">
                 <div class="grid grid_12">
                     <div class="nicdark_space100"></div>
@@ -27,7 +26,6 @@
                     <div class="nicdark_space50"></div>
                 </div>
             </div>
-            <!--end nicdark_container-->
         </div>
     </section>
     <!--end section-->
@@ -41,25 +39,13 @@
         -->
     {# end if there is no Role data#}
     {# else #}
-        {# for each Role object #}
-
         {% for role in roles.all %}
-        <!--start section-->
+        <!-- role: {{ role.label | capfirst }} -->
         <section class="nicdark_section">
-            <!--start nicdark_container-->
             <div class="nicdark_container nicdark_clearfix">
                 <div class="nicdark_space50"></div>
 
                 {# Role object details #}
-
-
-
-
-                
-
-
-
-
                 <div class="grid grid_12">
                     <h1 class="subtitle greydark">{{ role.label | capfirst }}</h1>
                     <div class="nicdark_space20"></div>
@@ -70,11 +56,13 @@
                     </div>
                     <div class="nicdark_space10"></div>
                 </div>
+                {# end Role object details #}
 
 
                 {# Member object details #}
                 {% for member in members.all %}
                     {% if member.role.id == role.id %}
+                    <!-- member {{ member.id | capfirst }} -->
                     <div class="grid grid_3">
                         <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow center">
                             <a href="/team/members/{{ member.slug }}/">
@@ -108,18 +96,16 @@
                             </div>
                         </div>
                     </div>
+                    <!-- end member {{ member.id | capfirst }} -->
                     {% endif %}
                 {% endfor %}
                 {# end Member object details #}
 
                 <div class="nicdark_space50"></div>
             </div>
-            <!--end nicdark_container-->
         </section>
-        <!--end section-->
+        <!-- end role: {{ role.label | capfirst }} -->
         {% endfor %}
-
-        {# end for each Role object #}
     {# end else #}
 
 {% endblock %}
