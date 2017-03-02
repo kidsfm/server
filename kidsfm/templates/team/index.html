@@ -51,12 +51,23 @@
                 <div class="nicdark_space50"></div>
 
                 {# Role object details #}
+
+
+
+
+                
+
+
+
+
                 <div class="grid grid_12">
                     <h1 class="subtitle greydark">{{ role.label | capfirst }}</h1>
                     <div class="nicdark_space20"></div>
                     <h3 class="subtitle grey">{{ role.description | capfirst }}</h3>
                     <div class="nicdark_space20"></div>
-                    <div class="nicdark_divider left big"><span class="nicdark_bg_blue nicdark_radius"></span></div>
+                    <div class="nicdark_divider left big">
+                        <span class="nicdark_radius nicdark_bg_{% cycle 'blue' 'yellow' 'green' 'violet' 'orange' 'red' as bg_color %}"></span>
+                    </div>
                     <div class="nicdark_space10"></div>
                 </div>
 
@@ -72,21 +83,27 @@
                                      src="{{ member.profile_img.url }}"
                                 >
                             </a>
-                            <div class="nicdark_textevidence nicdark_bg_blue">
+                            <div class="nicdark_textevidence  nicdark_bg_{{ bg_color }}">
                                 <h5 class="white nicdark_margin20">
                                     {{ member.first_name | add:' ' | capfirst }}
                                     {{ member.middle_name | add:' ' | capfirst }}
                                     {{ member.last_name | add:' ' | capfirst }}
                                 </h5>
-                                <i class="icon-brush nicdark_iconbg right medium blue"></i>
+                                <i class="icon-brush nicdark_iconbg right medium {{ bg_color }}"></i>
                             </div>
                             <div class="nicdark_textevidence">
                                 <div class="nicdark_margin20">
                                     <p>{{ member.bio }}</p>
                                     <div class="nicdark_space20 nicdark_displaynone_ipadpotr"></div>
-                                    <a title="Email" href="mailto:{{ member.email }}" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip nicdark_bg_blue medium nicdark_shadow nicdark_radius_circle white nicdark_margin010"><i class="icon-mail nicdark_rotate"></i></a>
-                                    <a title="Portfolio" href="{{ member.portfolio }}" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip nicdark_bg_blue medium nicdark_shadow nicdark_radius_circle white nicdark_margin010"><i class="icon-globe-outline nicdark_rotate"></i></a>
-                                    <a title="Social Media" href="{{ member.social_media }}" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip nicdark_bg_blue medium nicdark_shadow nicdark_radius_circle white nicdark_margin010"><i class="icon-youtube-play nicdark_rotate"></i></a>
+                                    <a title="Email" href="mailto:{{ member.email }}" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip medium nicdark_shadow nicdark_radius_circle white nicdark_margin010 nicdark_bg_{{ bg_color }}">
+                                        <i class="icon-mail nicdark_rotate"></i>
+                                    </a>
+                                    <a title="Portfolio" href="{{ member.portfolio }}" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip medium nicdark_shadow nicdark_radius_circle white nicdark_margin010 nicdark_bg_{{ bg_color }}">
+                                        <i class="icon-globe-outline nicdark_rotate"></i>
+                                    </a>
+                                    <a title="Social Media" href="{{ member.social_media }}" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip medium nicdark_shadow nicdark_radius_circle white nicdark_margin010 nicdark_bg_{{ bg_color }}">
+                                        <i class="icon-youtube-play nicdark_rotate"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
