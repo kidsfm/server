@@ -11,7 +11,7 @@
     "model": "team.Role",
     "pk": 2,
     "fields": {
-      "label": "techniciam",
+      "label": "technician",
       "description": "These are the folks behind the scenes making sure everything works well"
     }
   }
