@@ -50,9 +50,6 @@ class Members(View):
 	Returns an HTML page with details of a single team.Member object.
 
 	URL:	/team/members/<member-slug>
-
-	ToDo:
-	- implement this
 	'''
 	def get(self, request, member_slug):
 
@@ -63,16 +60,15 @@ class Members(View):
 		# fetch all data from Member model
 		member_data 	= fetch_member_data({'slug':member_slug})
 		member_values 	= member_data.values()[0]
+		member_id 		= member_values['id']
 
 
 		# fetch all data from Interest model
-		interest_data 	= fetch_interest_data({})
-		interest_values = interest_data.values()
+		interest_data 	= fetch_interest_data({'member_id':member_id})
 
 
 		# fetch all data from Role model
-		role_data 		= fetch_role_data({})
-		role_values 	= role_data.values()
+		role_data 		= fetch_role_data({'member_id':member_id})
 
 
 		# load data in params container
@@ -86,24 +82,8 @@ class Members(View):
 		params['portfolio']		= member_values['portfolio']
 		params['social_media']	= member_values['social_media']
 		params['slug']			= member_values['slug']
-
-		# ToDo:
-		# update fetch_role_data() to enable client to query a member's role
-		params['role']			= role_values[member_values['role_id']]['label']
-
-
-		# ToDo:
-		# update fetch_interest_data() to enable client to query a member's interests
-		#params['interest']		= member_values['interest_id']
-
-
-		# Debug
-		print('\tnow in team.views.Member()')
-		print('\tmember-slug is: %s' % (member_slug,))
-		print('\tfetched member_data: %s' % (member_data,))
-		print('\tfirst name is: %s' % (params["first_name"],))
-		
-
+		params['interests']		= interest_data
+		params['role']			= role_data.values()[0]['label']
 
 		# render template with data & send HTML to client
 		return render(request, template_uri, params)
@@ -116,7 +96,7 @@ class Members_json(View):
 
 	URL: 	
 	- /team/members/
-	- /team/members?<q1=arg1&q2=arg2>
+	- /team/members?<role=1&offset=0&limit=4>
 
 	ToDo:
 	- validate query & send "bad format" status code if invalid
@@ -158,11 +138,6 @@ class Members_json(View):
 def fetch_member_data(query):
 	'''
 	Helper function that queries the DB for Member objects using filters defined in query.
-
-	See: 
-	- https://docs.djangoproject.com/en/1.10/topics/db/queries/#retrieving-specific-objects-with-filters
-	- https://docs.djangoproject.com/en/1.10/topics/db/queries/#field-lookups
-	- http://www.nomadjourney.com/2009/04/dynamic-django-queries-with-kwargs/
 	'''
 
 	# fetch role
@@ -210,7 +185,7 @@ class Interests_json(View):
 
 	URL: 	
 	- /team/interests/
-	- /team/interests?<q1=arg1&q2=arg2>
+	- /team/interests?<id=1&label=host&member_id=2>
 
 	ToDo:
 	- validate query & send "bad format" status code if invalid
@@ -221,6 +196,7 @@ class Interests_json(View):
 		q_dict = dict()
 		q_dict['id'] 		= request.GET.get('id', None)
 		q_dict['label'] 	= request.GET.get('label', None)
+		q_dict['member_id'] = request.GET.get('member_id', None)
 
 		# fetch data
 		interest_data = fetch_interest_data(q_dict)
@@ -257,6 +233,13 @@ def fetch_interest_data(query):
 	except:
 		pass
 
+	# fetch member_id
+	try:
+		if query['member_id'] is not None:
+			kwargs['member__id'] = query['member_id']
+	except:
+		pass
+
 	# fetch Interest data from DB
 	interests = Interest.objects.filter( **kwargs )
 
@@ -272,7 +255,7 @@ class Roles_json(View):
 
 	URL: 	
 	- /team/roles/
-	- /team/roles?<q1=arg1&q2=arg2>
+	- /team/roles?<id=1&label=host&member_id=2>
 
 	ToDo:
 	- validate query & send "bad format" status code if invalid
@@ -283,6 +266,7 @@ class Roles_json(View):
 		q_dict = dict()
 		q_dict['id'] 		= request.GET.get('id', None)
 		q_dict['label'] 	= request.GET.get('label', None)
+		q_dict['member_id'] = request.GET.get('member_id', None)
 
 		# fetch data
 		interest_data = fetch_interest_data(q_dict)
@@ -316,6 +300,13 @@ def fetch_role_data(query):
 	try:
 		if query['label'] is not None:
 			kwargs['label__icontains'] = query['label']
+	except:
+		pass
+
+	# fetch member_id
+	try:
+		if query['member_id'] is not None:
+			kwargs['member__id'] = query['member_id']
 	except:
 		pass
 

@@ -21,7 +21,7 @@ urlpatterns = [
 
 
 	# /team/members/
-	# /team/members?<q1=arg1&q2=arg2>
+	# /team/members?<role=1&offset=0&limit=4>
 	url(
 			r'^members/$',
 			Members_json.as_view(),
@@ -30,7 +30,7 @@ urlpatterns = [
 
 
 	# /team/interests/
-	# /team/interests?<q1=arg1&q2=arg2>
+	# /team/interests?<id=1&label=host&member_id=2>
 	url(
 			r'^interests/$',
 			Interests_json.as_view(),
@@ -39,7 +39,7 @@ urlpatterns = [
 
 
 	# /team/roles/
-	# /team/roles?<q1=arg1&q2=arg2>
+	# /team/roles?<id=1&label=host&member_id=2>
 	url(
 			r'^roles/$',
 			Roles_json.as_view(),
