@@ -9,11 +9,9 @@ from .models				import Member, Interest, Role
 
 class Index(View):
 	'''
-	ToDo:
-	- fetch data for each model separately
-	- serialize data for each model separately
-	- concatenate serialized string
-	- send combined data to client
+	Returns an HTML page with an idex of team.Member objects.
+
+	URL:	/team/
 	'''
 	def get(self, request):
 
@@ -21,15 +19,15 @@ class Index(View):
 		template_uri = 'team/index.html'
 
 
-		# fetch all data from Member model using an empty query object
+		# fetch all data from Member model
 		member_data = fetch_member_data({})
 
 
-		# fetch all data from Interest model using an empty query object
+		# fetch all data from Interest model
 		interest_data = fetch_interest_data({})
 
 
-		# fetch all data from Role model using an empty query object
+		# fetch all data from Role model
 		role_data = fetch_role_data({})
 
 
@@ -47,7 +45,7 @@ class Index(View):
 
 
 
-def Members(request, member_slug):
+class Members(View):
 	'''
 	Returns an HTML page with details of a single team.Member object.
 
@@ -56,9 +54,59 @@ def Members(request, member_slug):
 	ToDo:
 	- implement this
 	'''
-	template 	= loader.get_template('team/member.html')
-	context 	= {}
-	return HttpResponse(template.render(context,request))
+	def get(self, request, member_slug):
+
+		# define theme settings/properties
+		template_uri = 'team/member.html'
+
+
+		# fetch all data from Member model
+		member_data 	= fetch_member_data({'slug':member_slug})
+		member_values 	= member_data.values()[0]
+
+
+		# fetch all data from Interest model
+		interest_data 	= fetch_interest_data({})
+		interest_values = interest_data.values()
+
+
+		# fetch all data from Role model
+		role_data 		= fetch_role_data({})
+		role_values 	= role_data.values()
+
+
+		# load data in params container
+		params 					= dict()
+		params['first_name']	= member_values['first_name']
+		params['middle_name']	= member_values['middle_name']
+		params['last_name']		= member_values['last_name']
+		params['bio']			= member_values['bio']
+		params['profile_img']	= member_values['profile_img']
+		params['email']			= member_values['email']
+		params['portfolio']		= member_values['portfolio']
+		params['social_media']	= member_values['social_media']
+		params['slug']			= member_values['slug']
+
+		# ToDo:
+		# update fetch_role_data() to enable client to query a member's role
+		params['role']			= role_values[member_values['role_id']]['label']
+
+
+		# ToDo:
+		# update fetch_interest_data() to enable client to query a member's interests
+		#params['interest']		= member_values['interest_id']
+
+
+		# Debug
+		print('\tnow in team.views.Member()')
+		print('\tmember-slug is: %s' % (member_slug,))
+		print('\tfetched member_data: %s' % (member_data,))
+		print('\tfirst name is: %s' % (params["first_name"],))
+		
+
+
+		# render template with data & send HTML to client
+		return render(request, template_uri, params)
 
 
 
@@ -121,6 +169,12 @@ def fetch_member_data(query):
 	kwargs = dict()
 	try:
 		kwargs['role'] = int(query['role'])
+	except:
+		pass
+
+	# fetch slug
+	try:
+		kwargs['slug__icontains'] = query['slug']
 	except:
 		pass
 	

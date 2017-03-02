@@ -15,7 +15,7 @@ urlpatterns = [
 	# /team/members/<member-slug>
 	url(
 			r'^members/(?P<member_slug>[\w\-]+)/$',
-			Members, 
+			Members.as_view(), 
 			name='member'
 	),
 

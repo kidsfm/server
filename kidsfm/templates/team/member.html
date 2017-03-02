@@ -8,7 +8,7 @@
 
 
 {% block content %}
-	
+
 	{# jumbotron #}
     <!--start section-->
     <section id="nicdark_parallax_title" class="nicdark_section nicdark_imgparallax nicdark_parallaxx_img-single-teacher-1">
@@ -18,9 +18,13 @@
                 <div class="grid grid_12">
                     <div class="nicdark_space100"></div>
                     <div class="nicdark_space100"></div>
-                    <h1 class="white subtitle">Juliette Light</h1>
+                    <h1 class="white subtitle">
+                        {{ first_name | add:' ' | capfirst }}
+                        {{ middle_name | add:' ' | capfirst }}
+                        {{ last_name | add:' ' | capfirst }}
+                    </h1>
                     <div class="nicdark_space10"></div>
-                    <h3 class="subtitle white">Haiti's top Gospel host</h3>
+                    <h3 class="subtitle white">{{ role | capfirst }}</h3>
                     <div class="nicdark_space20"></div>
                     <div class="nicdark_divider left big"><span class="nicdark_bg_white nicdark_radius"></span></div>
                     <div class="nicdark_space40"></div>
@@ -45,10 +49,13 @@
                 <div class="nicdark_space10"></div>
                 <div class="nicdark_focus center">
                     <div class="nicdark_margin10">
-                        <a title="Videos" href="single-teacher.php.html#" class="nicdark_press nicdark_tooltip right nicdark_btn_icon nicdark_bg_red nicdark_shadow small nicdark_radius white"><i class="icon-youtube-play"></i></a>
+                        <a title="Email" href="mailto:{{ member.email }}" class="nicdark_press nicdark_tooltip right nicdark_btn_icon nicdark_bg_blue nicdark_shadow small nicdark_radius white"><i class="icon-mail"></i></a>
                     </div>
                     <div class="nicdark_margin10">
-                        <a title="Portfolio" href="single-teacher.php.html#" class="nicdark_press nicdark_tooltip right nicdark_btn_icon nicdark_bg_violet nicdark_shadow small nicdark_radius white"><i class="icon-globe"></i></a>
+                        <a title="Portfolio" href="{{ member.portfolio }}" class="nicdark_press nicdark_tooltip right nicdark_btn_icon nicdark_bg_blue nicdark_shadow small nicdark_radius white"><i class="icon-globe-outline"></i></a>
+                    </div>
+                    <div class="nicdark_margin10">
+                        <a title="Social Media" href="{{ member.social_media }}" class="nicdark_press nicdark_tooltip right nicdark_btn_icon nicdark_bg_blue nicdark_shadow small nicdark_radius white"><i class="icon-youtube-play"></i></a>
                     </div>
                 </div>
             </div>
@@ -58,7 +65,7 @@
                 <div class="nicdark_space20"></div>
                 <div class="nicdark_divider left small"><span class="nicdark_bg_blue nicdark_radius"></span></div>
                 <div class="nicdark_space20"></div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et quam blandit, vehicula leo id, varius mi. Duis ultricies lectus ut pellentesque hendrerit. Duis consequat euismod leo, ac aliquam eros vitae.<br/><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et quam blandit, vehicula leo id, varius mi. Duis ultricies lectus ut pellentesque hendrerit. Duis consequat euismod leo, ac aliquam eros vitae.<br/><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et quam blandit, vehicula leo id, varius mi. Duis ultricies lectus ut pellentesque hendrerit. Duis consequat euismod leo, ac aliquam eros vitae.</p>
+                <p>{{ bio }}</p>
             </div>
 
 
