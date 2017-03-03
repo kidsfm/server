@@ -43,8 +43,10 @@
             {% for statement in statements %}
             <div class="grid grid_3">
                 <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow">
-                    <img alt="" src="{{ statement.image.url }}">
-                     <div class="nicdark_textevidence nicdark_bg_{% cycle 'blue' 'yellow' 'green' 'violet' 'orange' 'red' as bg_color %} center">
+                    <a href="/mission/statements/{{ statement.slug }}">
+                        <img alt="" src="{{ statement.image.url }}">
+                    </a>
+                    <div class="nicdark_textevidence nicdark_bg_{% cycle 'blue' 'yellow' 'green' 'violet' 'orange' 'red' as bg_color %} center">
                         <h5 class="white nicdark_margin20">{{ statement.title }}</h5>
                         <i class="icon-stopwatch nicdark_iconbg right medium {{ bg_color }}"></i>
                     </div>
