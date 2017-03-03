@@ -6,7 +6,7 @@ from django_extensions.db.fields 	import AutoSlugField
 class Member(models.Model):
 	'''
 	Member model
-	defines attributes for a single Member object of the Team app
+	defines attributes for a single Member object
 	'''
 	first_name		= models.CharField(max_length=50)
 	middle_name		= models.CharField(max_length=50,blank=True)
@@ -36,16 +36,16 @@ class Member(models.Model):
 class Role(models.Model):
 	'''
 	Role model
-	container for user defined roles i.e. host, director etc for a Member object of the Team app
+	container for user defined roles i.e. host, director etc for a Member object
 	'''
 	label		= models.CharField(max_length=50)
 	description	= models.CharField(max_length=200)
 
 	# ToDo:
-	#icon		= create & import icon choices from pages app
+	#icon		= create & import icon choices from theme app
 
 	# ToDo:
-	#color		= create & import color choices from pages app
+	#color		= create & import color choices from theme app
 
 	def __str__(self):
 		return self.label
@@ -55,7 +55,7 @@ class Role(models.Model):
 class Interest(models.Model):
 	'''
 	Interest model
-	defines possible interest for a Member object of the Team app
+	defines possible interest for a Member
 	'''
 	label		= models.CharField(max_length=50)
 	description = models.CharField(max_length=200,blank=True)
