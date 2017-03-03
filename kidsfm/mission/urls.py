@@ -1,5 +1,5 @@
 from django.conf.urls	import url
-from .views 			import Index, Statement
+from .views 			import Index, Statements, Statements_json
 
 
 urlpatterns = [
@@ -11,12 +11,21 @@ urlpatterns = [
 			name='index'
 	),
 
-    # /mission/<statement-slug>
+    # /mission/statements/<statement-slug>
     url(
-			r'^(?P<statement_slug>[\w\-]+)/$',    
-			Statement.as_view(),
-			name='statement'
+			r'^statements/(?P<statement_slug>[\w\-]+)/$',    
+			Statements.as_view(),
+			name='statements'
     ),
+
+
+	# /mission/statements/
+	# /mission/statements?<id=1&slug=some-slug&offset=0&limit=4>
+	url(
+			r'^statements/$',
+			Statements_json.as_view(),
+			name='members_json'
+	),
 ]
 
 
