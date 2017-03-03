@@ -35,6 +35,14 @@ class Statement(models.Model):
 	#color			= 
 
 
+
+	slug 			= AutoSlugField(
+							max_length=50, 
+							unique=True, 
+							populate_from=('title')
+						)
+
+
 	def __str__(self):
 		return '%s' % (self.title,)
 		
