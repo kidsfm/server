@@ -1,0 +1,29 @@
+[
+	{
+		"model": "mission.Statement",
+    	"pk": 1,
+    	"fields": {
+			"title": "Programming",
+			"description": "You can count on us to fill your airwaves with wonderful content at any time of the day or night.",
+			"slug": "Programming"
+		}
+	},
+	{
+		"model": "mission.Statement",
+    	"pk": 2,
+    	"fields": {
+			"title": "Music",
+			"description": "From timeless classics to the latest tunes, we select only the best music for you child.",
+			"slug": "Music"
+		}
+	},
+	{
+		"model": "mission.Statement",
+    	"pk": 3,
+    	"fields": {
+			"title": "Languages",
+			"description": "Our programming includes a mixture of Creole, French, English and Spanish content.",
+			"slug": "Languages"
+		}
+	}
+]
