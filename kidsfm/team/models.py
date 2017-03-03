@@ -38,17 +38,28 @@ class Role(models.Model):
 	Role model
 	container for user defined roles i.e. host, director etc for a Member object
 	'''
-	label		= models.CharField(max_length=50)
-	description	= models.CharField(max_length=200)
+	label			= models.CharField(max_length=50)
+	description		= models.CharField(max_length=200)
+
 
 	# ToDo:
-	#icon		= create & import icon choices from theme app
+	# - create & import cover image choices from theme app
+	# - Note: image should be a rectangle landscape
+	#cover_image	= 
+
 
 	# ToDo:
-	#color		= create & import color choices from theme app
+	# - create & import icon choices from theme app
+	#icon			= 
+
+
+	# ToDo:
+	# - create & import color choices from theme app
+	#color			= 
+
 
 	def __str__(self):
-		return self.label
+		return '%s' % (self.label,)
 
 
 
@@ -57,11 +68,22 @@ class Interest(models.Model):
 	Interest model
 	defines possible interest for a Member
 	'''
-	label		= models.CharField(max_length=50)
-	description = models.CharField(max_length=200,blank=True)
+	label			= models.CharField(max_length=50)
+	description 	= models.CharField(max_length=200,blank=True)
+
+
+	# ToDo:
+	# - create & import icon choices from theme app
+	#icon			= 
+
+
+	# ToDo:
+	# - create & import color choices from theme app
+	#color			= 
+
 
 	def __str__(self):
-		return self.label
+		return '%s' % (self.label,)
 
 
 
