@@ -110,6 +110,9 @@ urlpatterns = [
     # /images/
     url(r'^images/', 	include('images.urls'),		name='images'),
 
+    # /mission/
+    url(r'^mission/',   include('mission.urls'),    name='mission'),
+
     # /oauth2/
     url(r'^oauth2/',    include('oauth2.urls'),     name='oauth2'),
 
@@ -118,6 +121,9 @@ urlpatterns = [
 
     # /team/
     url(r'^team/',      include('team.urls'),		name='team'),
+
+    # /theme/
+    url(r'^theme/',     include('theme.urls'),      name='theme'),
 
     # /videos/
     url(r'^videos/', 	include('videos.urls'),		name='videos'),
