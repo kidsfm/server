@@ -5,6 +5,7 @@
     	"fields": {
 			"title": "Programming",
 			"description": "You can count on us to fill your airwaves with wonderful content at any time of the day or night.",
+			"image": "img/mission/statement/img1.jpg",
 			"slug": "Programming"
 		}
 	},
@@ -14,6 +15,7 @@
     	"fields": {
 			"title": "Music",
 			"description": "From timeless classics to the latest tunes, we select only the best music for you child.",
+			"image": "img/mission/statement/img2.jpg",
 			"slug": "Music"
 		}
 	},
@@ -23,6 +25,7 @@
     	"fields": {
 			"title": "Languages",
 			"description": "Our programming includes a mixture of Creole, French, English and Spanish content.",
+			"image": "img/mission/statement/img3.jpg",
 			"slug": "Languages"
 		}
 	}
