@@ -52,7 +52,7 @@
                     </div>
                     <div class="nicdark_textevidence center">
                         <div class="nicdark_margin20">
-                            <p>{{ statement.description }}</p>
+                            <p>{{ statement.description | truncatechars:80}}</p>
                             <div class="nicdark_space20"></div>
                             <a href="/mission/statements/{{ statement.slug }}" class="nicdark_press white nicdark_btn nicdark_bg_{{ bg_color }} medium nicdark_radius nicdark_shadow">MORE INFO</a>
                         </div>
