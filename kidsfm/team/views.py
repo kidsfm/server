@@ -31,15 +31,16 @@ class Index(View):
 		role_data = fetch_role_data({})
 
 
-		# load data in params container
-		params 				= dict()
-		params["members"]	= member_data
-		params["interests"] = interest_data
-		params["roles"] 	= role_data
+		# load data in context container
+		context = {
+			"members"	: member_data,
+			"interests" : interest_data,
+			"roles"		: role_data
+		}
 
 
 		# render template with data & send HTML to client
-		return render(request, template_uri, params)
+		return render(request, template_uri, context)
 
 		
 
@@ -71,22 +72,22 @@ class Members(View):
 		role_data 		= fetch_role_data({'member_id':member_id})
 
 
-		# load data in params container
-		params 					= dict()
-		params['first_name']	= member_values['first_name']
-		params['middle_name']	= member_values['middle_name']
-		params['last_name']		= member_values['last_name']
-		params['bio']			= member_values['bio']
-		params['profile_img']	= member_values['profile_img']
-		params['email']			= member_values['email']
-		params['portfolio']		= member_values['portfolio']
-		params['social_media']	= member_values['social_media']
-		params['slug']			= member_values['slug']
-		params['interests']		= interest_data
-		params['role']			= role_data.values()[0]['label']
+		# load data in context container
+		context 					= dict()
+		context['first_name']	= member_values['first_name']
+		context['middle_name']	= member_values['middle_name']
+		context['last_name']		= member_values['last_name']
+		context['bio']			= member_values['bio']
+		context['profile_img']	= member_values['profile_img']
+		context['email']			= member_values['email']
+		context['portfolio']		= member_values['portfolio']
+		context['social_media']	= member_values['social_media']
+		context['slug']			= member_values['slug']
+		context['interests']		= interest_data
+		context['role']			= role_data.values()[0]['label']
 
 		# render template with data & send HTML to client
-		return render(request, template_uri, params)
+		return render(request, template_uri, context)
 
 
 
@@ -104,13 +105,16 @@ class Members_json(View):
 	def get(self, request):
 
 		# fetch query params
-		q_dict = dict()
-		q_dict['role'] 		= request.GET.get('role', None)
-		q_dict['offset'] 	= request.GET.get('offset', None)
-		q_dict['limit'] 	= request.GET.get('limit', None)
+		query = {
+			"role"	 : request.GET.get('role', None),
+			"offset" : request.GET.get('offset', None),
+			"limit"	 : request.GET.get('limit', None)
+		}
+
+
 
 		# fetch data
-		member_data = fetch_member_data(q_dict)
+		member_data = fetch_member_data(query)
 
 
 		# serialize & return data
@@ -185,7 +189,7 @@ class Interests_json(View):
 
 	URL: 	
 	- /team/interests/
-	- /team/interests?<id=1&label=host&member_id=2>
+	- /team/interests?<id=1&label=host&member-id=2>
 
 	ToDo:
 	- validate query & send "bad format" status code if invalid
@@ -193,13 +197,14 @@ class Interests_json(View):
 	def get(self, request):
 
 		# fetch query params
-		q_dict = dict()
-		q_dict['id'] 		= request.GET.get('id', None)
-		q_dict['label'] 	= request.GET.get('label', None)
-		q_dict['member_id'] = request.GET.get('member_id', None)
+		query = {
+			'id'		: request.GET.get('id', None),
+			'label'		: request.GET.get('label', None),
+			'member-id'	: request.GET.get('member-id', None),
+		}
 
 		# fetch data
-		interest_data = fetch_interest_data(q_dict)
+		interest_data = fetch_interest_data(query)
 
 		# serialize & return data
 		data = serializers.serialize(
@@ -233,10 +238,10 @@ def fetch_interest_data(query):
 	except:
 		pass
 
-	# fetch member_id
+	# fetch member-id
 	try:
-		if query['member_id'] is not None:
-			kwargs['member__id'] = query['member_id']
+		if query['member-id'] is not None:
+			kwargs['member__id'] = query['member-id']
 	except:
 		pass
 
@@ -255,26 +260,27 @@ class Roles_json(View):
 
 	URL: 	
 	- /team/roles/
-	- /team/roles?<id=1&label=host&member_id=2>
+	- /team/roles?<id=1&label=host&member-id=2>
 
 	ToDo:
 	- validate query & send "bad format" status code if invalid
 	'''
 	def get(self, request):
 
-		# fetch query params
-		q_dict = dict()
-		q_dict['id'] 		= request.GET.get('id', None)
-		q_dict['label'] 	= request.GET.get('label', None)
-		q_dict['member_id'] = request.GET.get('member_id', None)
+		# fetch query context
+		query = {
+			'id'		: request.GET.get('id', None),
+			'label'		: request.GET.get('label', None),
+			'member-id'	: request.GET.get('member-id', None),
+		}
 
 		# fetch data
-		interest_data = fetch_interest_data(q_dict)
+		role_data = fetch_role_data(query)
 
 		# serialize & return data
 		data = serializers.serialize(
 										'json', 
-										list(interest_data), 
+										list(role_data), 
 										fields=(
 													'label',
 													'description'
@@ -303,10 +309,10 @@ def fetch_role_data(query):
 	except:
 		pass
 
-	# fetch member_id
+	# fetch member-id
 	try:
-		if query['member_id'] is not None:
-			kwargs['member__id'] = query['member_id']
+		if query['member-id'] is not None:
+			kwargs['member__id'] = query['member-id']
 	except:
 		pass
 

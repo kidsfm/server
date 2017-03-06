@@ -39,7 +39,7 @@ urlpatterns = [
 
 
 	# /team/roles/
-	# /team/roles?<id=1&label=host&member_id=2>
+	# /team/roles?<id=1&label=host&member-id=2>
 	url(
 			r'^roles/$',
 			Roles_json.as_view(),
