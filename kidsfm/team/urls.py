@@ -30,7 +30,7 @@ urlpatterns = [
 
 
 	# /team/interests/
-	# /team/interests?<id=1&label=host&member_id=2>
+	# /team/interests?<id=1&label=host&member-id=2>
 	url(
 			r'^interests/$',
 			Interests_json.as_view(),

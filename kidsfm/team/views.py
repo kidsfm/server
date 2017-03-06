@@ -58,33 +58,19 @@ class Members(View):
 		template_uri = 'team/member.html'
 
 
-		# fetch all data from Member model
-		member_data 	= fetch_member_data({'slug':member_slug})
-		member_values 	= member_data.values()[0]
-		member_id 		= member_values['id']
+		# fetch Member data for this member
+		member_data 	= fetch_member_data({'slug':member_slug}).first()
 
 
-		# fetch all data from Interest model
-		interest_data 	= fetch_interest_data({'member_id':member_id})
-
-
-		# fetch all data from Role model
-		role_data 		= fetch_role_data({'member_id':member_id})
+		# fetch Interest data for this member
+		interest_data 	= fetch_interest_data({'member-id':member_data.id})
 
 
 		# load data in context container
-		context 					= dict()
-		context['first_name']	= member_values['first_name']
-		context['middle_name']	= member_values['middle_name']
-		context['last_name']		= member_values['last_name']
-		context['bio']			= member_values['bio']
-		context['profile_img']	= member_values['profile_img']
-		context['email']			= member_values['email']
-		context['portfolio']		= member_values['portfolio']
-		context['social_media']	= member_values['social_media']
-		context['slug']			= member_values['slug']
-		context['interests']		= interest_data
-		context['role']			= role_data.values()[0]['label']
+		context = {
+			"member" 	: member_data,
+			"interests" : interest_data,
+		}
 
 		# render template with data & send HTML to client
 		return render(request, template_uri, context)

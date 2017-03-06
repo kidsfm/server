@@ -1,5 +1,6 @@
 {% extends "kidsfm/base.html" %}
 {% load staticfiles %}
+{% load static %}
 
 
 {% block metadata %}
@@ -19,12 +20,14 @@
                     <div class="nicdark_space100"></div>
                     <div class="nicdark_space100"></div>
                     <h1 class="white subtitle">
-                        {{ first_name | add:' ' | capfirst }}
-                        {{ middle_name | add:' ' | capfirst }}
-                        {{ last_name | add:' ' | capfirst }}
+                        {{ member.first_name | add:' ' | capfirst }}
+                        {{ member.middle_name | add:' ' | capfirst }}
+                        {{ member.last_name | add:' ' | capfirst }}
                     </h1>
                     <div class="nicdark_space10"></div>
-                    <h3 class="subtitle white">{{ role | capfirst }}</h3>
+                    <h3 class="subtitle white">
+                        {{ member.role | capfirst }}
+                    </h3>
                     <div class="nicdark_space20"></div>
                     <div class="nicdark_divider left big"><span class="nicdark_bg_white nicdark_radius"></span></div>
                     <div class="nicdark_space40"></div>
@@ -46,21 +49,21 @@
             <div class="nicdark_space50"></div>
             <div class="grid grid_4">
                 <img 
-                    alt="{{ first_name | add:' ' | capfirst }}{{ middle_name | add:' ' | capfirst }}{{ last_name | add:' ' | capfirst }}profile image" 
+                    alt="{{ member.first_name | add:' ' | capfirst }}{{ member.middle_name | add:' ' | capfirst }}{{ member.last_name | add:' ' | capfirst }}profile image" 
                     class="nicdark_radius nicdark_opacity" 
                     style="float:left;width:100%;" 
-                    src="/media/{{ profile_img }}"
+                    src="{% get_media_prefix %}{{ member.profile_img }}"
                 >
                 <div class="nicdark_space10"></div>
                 <div class="nicdark_focus center">
                     <div class="nicdark_margin10">
-                        <a title="Email" href="mailto:{{ email }}" class="nicdark_press nicdark_tooltip right nicdark_btn_icon nicdark_bg_blue nicdark_shadow small nicdark_radius white"><i class="icon-mail"></i></a>
+                        <a title="Email" href="mailto:{{ member.email }}" class="nicdark_press nicdark_tooltip right nicdark_btn_icon nicdark_bg_blue nicdark_shadow small nicdark_radius white"><i class="icon-mail"></i></a>
                     </div>
                     <div class="nicdark_margin10">
-                        <a title="Portfolio" href="{{ portfolio }}" class="nicdark_press nicdark_tooltip right nicdark_btn_icon nicdark_bg_blue nicdark_shadow small nicdark_radius white"><i class="icon-globe-outline"></i></a>
+                        <a title="Portfolio" href="{{ member.portfolio }}" class="nicdark_press nicdark_tooltip right nicdark_btn_icon nicdark_bg_blue nicdark_shadow small nicdark_radius white"><i class="icon-globe-outline"></i></a>
                     </div>
                     <div class="nicdark_margin10">
-                        <a title="Social Media" href="{{ social_media }}" class="nicdark_press nicdark_tooltip right nicdark_btn_icon nicdark_bg_blue nicdark_shadow small nicdark_radius white"><i class="icon-youtube-play"></i></a>
+                        <a title="Social Media" href="{{ member.social_media }}" class="nicdark_press nicdark_tooltip right nicdark_btn_icon nicdark_bg_blue nicdark_shadow small nicdark_radius white"><i class="icon-youtube-play"></i></a>
                     </div>
                 </div>
             </div>
@@ -70,7 +73,9 @@
                 <div class="nicdark_space20"></div>
                 <div class="nicdark_divider left small"><span class="nicdark_bg_blue nicdark_radius"></span></div>
                 <div class="nicdark_space20"></div>
-                <p>{{ bio }}</p>
+                <p>
+                    {{ member.bio }}
+                </p>
             </div>
 
 
