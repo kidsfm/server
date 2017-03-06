@@ -23,12 +23,12 @@ class Index(View):
 		statement_data = fetch_statement_data({})
 
 
-		# load data in params container
-		params = {"statements": statement_data}
+		# load data in context container
+		context = {"statements": statement_data}
 
 
 		# render template with data & send HTML to client
-		return render(request, template_uri, params)
+		return render(request, template_uri, context)
 
 
 
@@ -48,12 +48,12 @@ class Statements(View):
 		statement_data = fetch_statement_data({"slug":statement_slug}).first()
 
 
-		# load data in params container
-		params = {"statement": statement_data}
+		# load data in context container
+		context = {"statement": statement_data}
 
 
 		# render template with data & send HTML to client
-		return render(request, template_uri, params)
+		return render(request, template_uri, context)
 
 
 
@@ -73,7 +73,7 @@ class Statements_json(View):
 	'''
 	def get(self, request):
 
-		# fetch query params
+		# fetch query context
 		q_dict = dict()
 		q_dict['id'] 		= request.GET.get('id', None)
 		q_dict['offset'] 	= request.GET.get('offset', None)
