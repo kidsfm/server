@@ -32,14 +32,6 @@ urlpatterns = [
     #                            name='404'
     #),
 
-    # /contact
-    url(r'^contact/$',          TemplateView.as_view(
-                                                template_name='kidsfm/contact.html', 
-                                                content_type="text/html"
-                                ),
-                                name='contact'
-    ),
-
     # /listen
     #
     #    ToDo: 
@@ -75,6 +67,9 @@ urlpatterns = [
 
     # /blog/
     url(r'^blog/', 	    include('blog.urls'),		name='blog'),
+
+    # /contact
+    url(r'^contact/',   include('contact.urls'),    name='contact'),
 
     # /images/
     url(r'^images/', 	include('images.urls'),		name='images'),
