@@ -39,8 +39,10 @@
             <div class="nicdark_space50"></div>
             <div class="grid grid_8">
                 <p>
-                	<span class="white nicdark_dropcap nicdark_bg_yellow nicdark_radius nicdark_shadow">L</span>
-                	{{ statement.description }}
+                	<span class="white nicdark_dropcap nicdark_bg_yellow nicdark_radius nicdark_shadow">
+                		{{ statement.description | slice:":1" }}
+                	</span>
+                	{{ statement.description | slice:"1:" }}
                 </p>
                 <div class="nicdark_space50"></div>
             	<div class="nicdark_space50"></div>
