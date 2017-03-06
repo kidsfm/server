@@ -24,8 +24,7 @@ class Index(View):
 
 
 		# load data in params container
-		params 					= dict()
-		params["statements"]	= statement_data
+		params = {"statements": statement_data}
 
 
 		# render template with data & send HTML to client
@@ -43,12 +42,21 @@ class Statements(View):
 
 		# define theme settings/properties
 		template_uri = 'mission/statement.html'
-		
 
-		# placeholder template
-		template 	= loader.get_template(template_uri)
-		context 	= {}
-		return HttpResponse(template.render(context,request))
+
+		# fetch all data from Statement model
+		statement_data = fetch_statement_data({"slug":statement_slug}).first()
+
+
+		# load data in params container
+		params = {"statement": statement_data}
+
+
+		# render template with data & send HTML to client
+		return render(request, template_uri, params)
+
+
+
 
 
 
