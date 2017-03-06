@@ -81,7 +81,7 @@
                             </div>
                             <div class="nicdark_textevidence">
                                 <div class="nicdark_margin20">
-                                    <p>{{ member.bio }}</p>
+                                    <p>{{ member.bio | truncatechars:80 }}</p>
                                     <div class="nicdark_space20 nicdark_displaynone_ipadpotr"></div>
                                     <a title="Email" href="mailto:{{ member.email }}" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip medium nicdark_shadow nicdark_radius_circle white nicdark_margin010 nicdark_bg_{{ bg_color }}">
                                         <i class="icon-mail nicdark_rotate"></i>
