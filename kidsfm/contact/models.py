@@ -25,7 +25,7 @@ class Location(models.Model):
 	'''
 	# meta details
 	title		= models.CharField(max_length=50)
-	description	= models.EmailField(max_length=255)
+	description	= models.TextField(max_length=255)
 	is_primary 	= models.BooleanField(default=False)
 
 	# address
