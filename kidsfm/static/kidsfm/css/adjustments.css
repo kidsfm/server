@@ -1,0 +1,14 @@
+/*
+*
+*	Adjustments to Design Theme styles
+*
+**/
+
+
+// Contact
+// URL:		/contact/
+input[type="email"].small { 
+	font-size	: 15px 	!important; 
+	width		: 90% 		!important; 
+	padding		: 10px 5% 	!important; 
+}
