@@ -18,9 +18,9 @@ admin.site.register(Message, MessageAdmin)
 class LocationAdmin(admin.ModelAdmin):
     list_display = [
     	'title',
+    	'description',
     	'address',
     	'city',
-    	'state',
     	'country',
     ]
 

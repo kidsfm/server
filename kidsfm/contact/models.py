@@ -30,9 +30,9 @@ class Location(models.Model):
 
 	# address
 	address		= models.CharField(max_length=255)
-	city		= models.CharField(max_length=100)
-	state 		= models.CharField(max_length=100)
-	country 	= models.CharField(max_length=100)
+	city		= models.CharField(max_length=100, default='Port au Prince')
+	state 		= models.CharField(max_length=100, blank=True)
+	country 	= models.CharField(max_length=100, default='Haiti')
 
 	# contact info
 	phone		= models.CharField(max_length=100)
@@ -55,7 +55,7 @@ class Location(models.Model):
 
 
 	def __str__(self):
-		return '%s: %s...' % (self.name, self.message[:10])
+		return '%s: %s...' % (self.title, self.description[:10])
 		
 
 
