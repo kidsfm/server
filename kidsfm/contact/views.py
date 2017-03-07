@@ -32,3 +32,8 @@ class Index(View):
 
 
 
+	def post(self, request):
+		pass
+
+
+
