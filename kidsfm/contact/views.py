@@ -1,8 +1,9 @@
-from django.http			import HttpResponse
+from django.http			import HttpResponse, HttpResponseRedirect
 from django.template		import loader
 from django.views.generic	import View
 from django.core 			import serializers
 from django.shortcuts		import render
+from datetime				import datetime
 from .models				import Message, Location
 from .forms					import MessageForm
 
@@ -42,16 +43,56 @@ class Index(View):
 
 	def post(self, request):
 
-		# define theme settings/properties
-		template_uri = 'contact/thankyou.html'
+		form = MessageForm(request.POST)
+		if form.is_valid():
+
+			# theme settings/properties
+			template_uri = 'contact/thankyou.html'
 
 
-		# load data in context container
-		context = {}
+			# fetch Message data from form
+			name 	= form.cleaned_data['name']
+			email 	= form.cleaned_data['email']
+			message = form.cleaned_data['message']
+			
+
+			# Debug
+			print('\treceived valid search form')
+			print('\tname is:',name)
+			print('\temail is:',email)
+			print('\tmessage is:',message)
 
 
-		# render template with data & send HTML to client
-		return render(request, template_uri, context)
+			# ToDo:
+			# - commit message to DB
+			new_message = Message(
+									name=name,
+									email=email,
+									message=message,
+									sent_date=datetime.now()
+								)
+			new_message.save()
+
+
+			# ToDo:
+			# verify that new message is in DB
+
+
+			# load data in context container
+			context = {
+				'message':new_message
+			}
+
+
+			# render template with data & send HTML to client
+			return render(request, template_uri, context)
+
+		else:
+			HttpResponseRedirect("/contact/")
+
+
+
+
 		
 
 
