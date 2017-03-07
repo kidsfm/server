@@ -8,26 +8,6 @@
 
 
 {% block content %}
-	
-
-{% comment %}
-    <h1>This is the Contact page</h1>
-
-    <br><br><br><br><br><br><br><br>
-
-    <form class="" method="POST" action="contact/">{% csrf_token %}
-        
-        {{ form.email.errors }}
-        {{ form.email }}
-        
-        {{ form.message.errors }}
-        {{ form.message }}
-
-        <input type="submit" class="" value="Send">
-    </form>
-{% endcomment %}
-
-
 
     {# jumbotron #}
     <!--start section-->
@@ -63,38 +43,27 @@
 
             {# details #}
             <div class="grid grid_4">
+                {% for location in locations %}
+                <!-- location {{ forloop.counter }} -->
                 <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow">
                     <div class="nicdark_margin20 nicdark_relative">
-                            <a href="contact-1.php.html#" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_bg_yellow extrabig nicdark_radius_circle white nicdark_absolute nicdark_shadow"><i class="icon-location-outline nicdark_rotate"></i></a>
+                            <a href="contact-1.php.html#" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_bg_{% cycle 'blue' 'yellow' 'green' 'violet' 'orange' 'red' as icon_color %} extrabig nicdark_radius_circle white nicdark_absolute nicdark_shadow"><i class="icon-location-outline nicdark_rotate"></i></a>
                             <div class="nicdark_activity nicdark_marginleft100 nicdark_disable_marginleft_ipadpotr">
-                                <h4>MAIN SCHOOL</h4>                        
+                                <h4>{{ location.title | capfirst }}</h4>                        
                                 <div class="nicdark_space20"></div>
-                                <p>Times Square 58, New York<br/>(00) 520 990 759</p>
+                                <p>
+                                    {{ location.address | capfirst }}<br/>
+                                    {{ location.city | capfirst }}<br/>
+                                    {{ location.state | capfirst }}<br/>
+                                    {{ location.phone }}<br/>
+                                    {{ location.email }}<br/>
+                                </p>
                             </div>
                     </div>
                 </div>
                 <div class="nicdark_space20"></div>
-                <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow">
-                    <div class="nicdark_margin20 nicdark_relative">
-                            <a href="contact-1.php.html#" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_bg_orange extrabig nicdark_radius_circle white nicdark_absolute nicdark_shadow"><i class="icon-address nicdark_rotate"></i></a>
-                            <div class="nicdark_activity nicdark_marginleft100 nicdark_disable_marginleft_ipadpotr">
-                                <h4>SECONDARY SCHOOL</h4>                        
-                                <div class="nicdark_space20"></div>
-                                <p>Brodway 358, New York<br/>(00) 520 990 759</p>
-                            </div>
-                    </div>
-                </div>
-                <div class="nicdark_space20"></div>
-                <div class="nicdark_archive1 nicdark_bg_greydark nicdark_radius nicdark_shadow">
-                    <div class="nicdark_margin20 nicdark_relative">
-                            <a href="contact-1.php.html#" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_bg_red extrabig nicdark_radius_circle white nicdark_absolute nicdark_shadow"><i class="icon-paper-plane-empty nicdark_rotate"></i></a>
-                            <div class="nicdark_activity nicdark_marginleft100 nicdark_disable_marginleft_ipadpotr">
-                                <h4 class="white">M@IL US</h4>                        
-                                <div class="nicdark_space20"></div>
-                                <p class="white">info@babykids.com <br/>registration@babykids.com</p>
-                            </div>
-                    </div>
-                </div>
+                <!-- end location {{ forloop.counter }} -->
+                {% endfor %}
             </div>
             {# end details #}
 
@@ -116,7 +85,6 @@
                         {{ form.message }}
                         <div class="nicdark_space20"></div>
                         <input class="nicdark_btn nicdark_bg_orange medium nicdark_shadow nicdark_radius white" type="submit" value="Send">
-                        <!--a href="submit-message.php.html" class="nicdark_mpopup_ajax nicdark_btn nicdark_bg_orange medium nicdark_shadow nicdark_radius white nicdark_press">SEND</a-->
                     </div>
                 </div>
             </form>

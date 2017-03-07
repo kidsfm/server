@@ -3,7 +3,7 @@ from django.template		import loader
 from django.views.generic	import View
 from django.core 			import serializers
 from django.shortcuts		import render
-from .models				import Message
+from .models				import Message, Location
 from .forms					import MessageForm
 
 
@@ -24,9 +24,14 @@ class Index(View):
 		form = MessageForm()
 
 
+		# fetch Location data
+		location_data = Location.objects.all()
+
+
 		# load data in context container
 		context = {
-			'form': form
+			'form'		: form,
+			'locations' : location_data
 		}
 
 

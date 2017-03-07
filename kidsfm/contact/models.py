@@ -39,6 +39,16 @@ class Location(models.Model):
 	email 		= models.EmailField(max_length=255)
 
 
+	# ToDo:
+	# - create & import icon choices from theme app
+	#icon			= 
+
+
+	# ToDo:
+	# - create & import color choices from theme app
+	#color			= 
+
+
 	def save(self, *args, **kwargs):
 		if self.is_primary:
 			try:
