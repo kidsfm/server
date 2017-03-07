@@ -29,13 +29,13 @@ class Location(models.Model):
 	is_primary 	= models.BooleanField(default=False)
 
 	# address
-	address		= models.TextField(max_length=255)
-	city		= models.TextField(max_length=100)
-	state 		= models.TextField(max_length=100)
-	country 	= models.TextField(max_length=100)
+	address		= models.CharField(max_length=255)
+	city		= models.CharField(max_length=100)
+	state 		= models.CharField(max_length=100)
+	country 	= models.CharField(max_length=100)
 
 	# contact info
-	phone		= models.TextField(max_length=100)
+	phone		= models.CharField(max_length=100)
 	email 		= models.EmailField(max_length=255)
 
 
