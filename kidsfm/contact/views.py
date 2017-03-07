@@ -3,6 +3,8 @@ from django.template		import loader
 from django.views.generic	import View
 from django.core 			import serializers
 from django.shortcuts		import render
+from .models				import Message
+from .forms					import MessageForm
 
 
 
@@ -18,13 +20,14 @@ class Index(View):
 		template_uri = 'contact/index.html'
 
 
-		# fetch all data from Statement model
-		#statement_data = fetch_statement_data({})
+		# init contact form
+		form = MessageForm()
 
 
 		# load data in context container
-		#context = {"statements": statement_data}
-		context = {}
+		context = {
+			'form': form
+		}
 
 
 		# render template with data & send HTML to client
@@ -33,7 +36,19 @@ class Index(View):
 
 
 	def post(self, request):
-		pass
+
+		# define theme settings/properties
+		template_uri = 'contact/thankyou.html'
+
+
+		# load data in context container
+		context = {}
+
+
+		# render template with data & send HTML to client
+		return render(request, template_uri, context)
+		
+
 
 
 
