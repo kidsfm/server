@@ -39,9 +39,6 @@ class Location(models.Model):
 	email 		= models.EmailField(max_length=255)
 
 
-	# ToDo:
-	# - there can only be one primary address
-	# See: http://stackoverflow.com/a/1455507
 	def save(self, *args, **kwargs):
 		if self.is_primary:
 			try:

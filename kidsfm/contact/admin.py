@@ -22,6 +22,7 @@ class LocationAdmin(admin.ModelAdmin):
     	'address',
     	'city',
     	'country',
+    	'is_primary',
     ]
 
 # Register Location model and admin form
