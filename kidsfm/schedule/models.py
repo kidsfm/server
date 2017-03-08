@@ -9,7 +9,7 @@ class Program(models.Model):
 	defines attributes for a single Program object of the Schedule app
 	'''
 	title		= models.CharField(max_length=50)
-	description	= models.TextField(max_length=255)
+	description	= models.TextField()
 	start_time 	= models.TimeField()
 	end_time	= models.TimeField()
 	start_date	= models.DateField()
