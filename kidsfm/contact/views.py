@@ -54,17 +54,9 @@ class Index(View):
 			name 	= form.cleaned_data['name']
 			email 	= form.cleaned_data['email']
 			message = form.cleaned_data['message']
-			
-
-			# Debug
-			print('\treceived valid search form')
-			print('\tname is:',name)
-			print('\temail is:',email)
-			print('\tmessage is:',message)
 
 
-			# ToDo:
-			# - commit message to DB
+			# commit message to DB
 			new_message = Message(
 									name=name,
 									email=email,
@@ -72,10 +64,6 @@ class Index(View):
 									sent_date=datetime.now()
 								)
 			new_message.save()
-
-
-			# ToDo:
-			# verify that new message is in DB
 
 
 			# load data in context container
