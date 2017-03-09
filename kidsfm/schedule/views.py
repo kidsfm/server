@@ -84,6 +84,7 @@ class Programs_json(View):
 												'end_date',
 												'frequency',
 												'team',
+												'slug',
 												)
 									)
 		return HttpResponse(data, content_type="application/json")

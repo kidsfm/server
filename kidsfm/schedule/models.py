@@ -1,5 +1,6 @@
-from django.db 		import models
-from team.models	import Member
+from django.db 						import models
+from django_extensions.db.fields 	import AutoSlugField
+from team.models					import Member
 
 
 
@@ -8,7 +9,7 @@ class Program(models.Model):
 	Program model
 	defines attributes for a single Program object of the Schedule app
 	'''
-	title		= models.CharField(max_length=50)
+	title		= models.CharField(max_length=50,unique=True)
 	description	= models.TextField()
 
 	# ToDo
@@ -22,6 +23,11 @@ class Program(models.Model):
 	end_date	= models.DateField()
 	frequency	= models.ManyToManyField('Day')
 	team		= models.ManyToManyField(Member)
+	slug 		= AutoSlugField(
+						max_length=50, 
+						unique=True, 
+						populate_from=('title')
+					)
 	
 
 
