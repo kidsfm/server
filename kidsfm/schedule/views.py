@@ -35,13 +35,30 @@ class Index(View):
 
 
 
-def Programs(request, program_slug):
+class Programs(View):
 	'''
-	Single program recheable from /schedule/<program-slug> URL
+	Returns an HTML page with details of a single Program object
+
+	URL:	/schedule/programs/<program-slug>
 	'''
-	template 	= loader.get_template('schedule/program.html')
-	context 	= {}
-	return HttpResponse(template.render(context,request))
+	def get(self, request, program_slug):
+
+		# define theme settings/properties
+		template_uri = 'schedule/program.html'
+
+
+		# fetch all data from Program model
+		program_data = fetch_program_data({'slug':program_slug}).first()
+
+
+		# load data in context container
+		context = {
+			"program"	: program_data,
+		}
+
+
+		# render template with data & send HTML to client
+		return render(request, template_uri, context)
 
 
 
@@ -52,7 +69,7 @@ class Programs_json(View):
 
 	URL: 	
 	- /schedule/programs/
-	- /schedule/programs?<offset=0&limit=4>
+	- /schedule/programs?<offset=0&limit=4&slug=program-slug>
 
 	ToDo:
 	- validate query & send "bad format" status code if invalid
@@ -61,6 +78,7 @@ class Programs_json(View):
 
 		# fetch query params
 		query = {
+			"slug"	 : request.GET.get('slug', None),
 			"offset" : request.GET.get('offset', None),
 			"limit"	 : request.GET.get('limit', None)
 		}
@@ -96,10 +114,11 @@ def fetch_program_data(query):
 	Helper function that queries the DB for Program objects using filters defined in query.
 	'''
 
-	# fetch role
+	# fetch slug
 	kwargs = dict()
 	try:
-		kwargs['role'] = int(query['role'])
+		if query['slug'] is not None:
+			kwargs['slug__icontains'] = query['slug']
 	except:
 		pass
 	

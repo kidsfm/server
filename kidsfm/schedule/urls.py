@@ -15,13 +15,13 @@ urlpatterns = [
 	# /schedule/<program-slug>
 	url(
 			r'^programs/(?P<program_slug>[\w\-]+)/$',
-			Programs,
+			Programs.as_view(),
 			name='programs'
 	),
 
 
 	# /schedule/programs/
-	# /schedule/programs?<offset=0&limit=4>
+	# /schedule/programs?<offset=0&limit=4&slug=program-slug>
 	url(
 			r'^programs/$',
 			Programs_json.as_view(),
