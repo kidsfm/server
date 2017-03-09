@@ -122,7 +122,9 @@
                         <h4 class="white nicdark_margin20">{{ program.title | capfirst }}</h4>
                     </div>
                     <div class="nicdark_margin20">
-                        <h5 class="white"><i class="icon-clock-1"></i>&nbsp;&nbsp;{{ program.start_time | date:"g:i A" | lower }} &nbsp;-&nbsp; {{ program.end_time | date:"g:i A" | lower }}</h5>
+                        <h5 class="white">
+                            <i class="icon-clock-1"></i>&nbsp;&nbsp;{{ program.start_time | date:"g:i A" | lower }} &nbsp;-&nbsp; {{ program.end_time | date:"g:i A" | lower }}
+                        </h5>
                         <div class="nicdark_space20"></div>
                         <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
                         <div class="nicdark_space20"></div>
@@ -131,7 +133,7 @@
                         </p>
                         <div class="nicdark_space20"></div>
                         <a href="/schedule/programs/{{ program.slug }}" class="nicdark_press nicdark_btn nicdark_bg_greendark white nicdark_radius nicdark_shadow medium">
-                            More
+                            Learn more
                         </a>
                     </div>
                 </div>
