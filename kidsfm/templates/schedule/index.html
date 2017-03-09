@@ -20,15 +20,22 @@
                 <div class="nicdark_space100"></div>
                 <div class="grid grid_12">
                     <h1 class="white center subtitle">Our Programming Schedule</h1>
-                    <div class="nicdark_space10"></div>
-                    <h3 class="subtitle center white">Don't miss out on the most wholesome educational content on the FM band</h3>
                     <div class="nicdark_space20"></div>
                     <div class="nicdark_divider center big"><span class="nicdark_bg_white nicdark_radius"></span></div> 
+                    <div class="nicdark_space20"></div>
+                    <h3 class="subtitle center white">Don't miss out on the most wholesome educational content on the FM band</h3>
+                    <!--
+                    <div class="nicdark_space20"></div>
+                    <div class="nicdark_divider center big"><span class="nicdark_bg_white nicdark_radius"></span></div> 
+                    -->
                     <div class="nicdark_space20"></div>    
                 </div>
                 
+
                 {# countdown widget #}
+                <!--
                 <div class="nicdark_countdown"></div>   
+                -->
                 {# end countdown widget #}
 
                 <div class="nicdark_space40"></div>
@@ -49,6 +56,7 @@
             <div class="nicdark_space50"></div>
 
             {# header #}
+            <!--
             <div class="grid grid_12">
                 <h1 class="subtitle greydark">OUR EVENTS</h1>
                 <div class="nicdark_space20"></div>
@@ -57,9 +65,12 @@
                 <div class="nicdark_divider left big"><span class="nicdark_bg_green nicdark_radius"></span></div>
                 <div class="nicdark_space10"></div>
             </div>
+            -->
             {# end header #}
 
+
             {# filter widget #}
+            <!--
             <div class="grid grid_12 nicdark_bg_grey nicdark_shadow nicdark_radius nicdark_relative">
                 <a href="events.php.html#" class="nicdark_displaynone_iphoneland nicdark_displaynone_iphonepotr nicdark_btn_icon nicdark_bg_green  extrabig nicdark_radius_left white nicdark_absolute"><i class="icon-search-2"></i></a>
                 <div class="nicdark_textevidence">
@@ -90,220 +101,54 @@
                 </div>
             </div>
             <div class="nicdark_space10"></div>
+            -->
             {# end filter widget #}
 
 
-            {# program 1 #}
+            {% for program in programs %}
+            <!-- program {{ forloop.counter }} -->
             <div class="grid grid_3">
-                <!--archive1-->
                 <div class="nicdark_archive1 nicdark_bg_green nicdark_radius nicdark_shadow">
-                    <a href="events.php.html#" class="nicdark_btn nicdark_bg_greydark white medium nicdark_radius nicdark_absolute_left">21<br/><small>DEC</small></a>
-                    <img alt=""  src="{% static "kidsfm/img/events/img1.jpg" %}">                 
+                    <a href="/schedule/programs/{{ program.slug }}" class="nicdark_btn nicdark_bg_greydark white medium nicdark_radius nicdark_absolute_left">
+                        {% for frequency in program.frequency.all %}
+                        <small>{{ frequency | stringformat:".3s" }}</small>&nbsp;
+                        {% endfor %}
+                        
+                    </a>
+                    <a href="/schedule/programs/{{ program.slug }}">
+                        <img alt="{{ program.title }} cover image"  src="{{ program.image.url }}">
+                    </a>
                     <div class="nicdark_textevidence nicdark_bg_greydark">
-                        <h4 class="white nicdark_margin20">A DAY IN THE PARK</h4>
+                        <h4 class="white nicdark_margin20">{{ program.title | capfirst }}</h4>
                     </div>
                     <div class="nicdark_margin20">
-                        <h5 class="white"><i class="icon-pin-outline"></i> New York, Times Square</h5>
-                        <div class="nicdark_space10"></div>
-                        <h5 class="white"><i class="icon-clock-1"></i> 9:00 To 14:00</h5>
+                        <h5 class="white"><i class="icon-clock-1"></i>&nbsp;&nbsp;{{ program.start_time }} To {{ program.end_time }}</h5>
                         <div class="nicdark_space20"></div>
                         <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
                         <div class="nicdark_space20"></div>
-                        <p class="white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt rutrum.</p>
+                        <p class="white">
+                            {{ program.description | capfirst | truncatechars:80 }}
+                        </p>
                         <div class="nicdark_space20"></div>
-                        <a href="single-event.php.html" class="nicdark_press nicdark_btn nicdark_bg_greendark white nicdark_radius nicdark_shadow medium">CHECK IT</a>
+                        <a href="/schedule/programs/{{ program.slug }}" class="nicdark_press nicdark_btn nicdark_bg_greendark white nicdark_radius nicdark_shadow medium">
+                            More
+                        </a>
                     </div>
                 </div>
-                <!--archive1-->
             </div>
+            <!-- end program {{ forloop.counter }} -->
             {# end program 1 #}
-
-            {# program 2 #}
-            <div class="grid grid_3">
-                <!--archive1-->
-                <div class="nicdark_archive1 nicdark_bg_blue nicdark_radius nicdark_shadow">
-                    <a href="events.php.html#" class="nicdark_btn nicdark_bg_greydark white medium nicdark_radius nicdark_absolute_left">10<br/><small>MAY</small></a>
-                    <img alt=""  src="{% static "kidsfm/img/events/img2.jpg" %}">
-                    <div class="nicdark_textevidence nicdark_bg_greydark">
-                        <h4 class="white nicdark_margin20">ARTIST AT SCHOOL</h4>
-                    </div>
-                    <div class="nicdark_margin20">
-                        <h5 class="white"><i class="icon-pin-outline"></i> New York, Times Square</h5>
-                        <div class="nicdark_space10"></div>
-                        <h5 class="white"><i class="icon-clock-1"></i> 9:00 To 14:00</h5>
-                        <div class="nicdark_space20"></div>
-                        <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
-                        <div class="nicdark_space20"></div>
-                        <p class="white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt rutrum.</p>
-                        <div class="nicdark_space20"></div>
-                        <a href="single-event.php.html" class="nicdark_press nicdark_btn nicdark_bg_bluedark white nicdark_radius nicdark_shadow medium">CHECK IT</a>
-                    </div>
-                </div>
-                <!--archive1-->
-            </div>
-            {# end program 2 #}
-
-            {# program 3 #}
-            <div class="grid grid_3">
-                <!--archive1-->
-                <div class="nicdark_archive1 nicdark_bg_yellow nicdark_radius nicdark_shadow">
-                    <a href="events.php.html#" class="nicdark_btn nicdark_bg_greydark white medium nicdark_radius nicdark_absolute_left">24<br/><small>MAR</small></a>
-                    <img alt=""  src="{% static "kidsfm/img/events/img3.jpg" %}">                 
-                    <div class="nicdark_textevidence nicdark_bg_greydark">
-                        <h4 class="white nicdark_margin20">WATERCOLOR PAINT</h4>
-                    </div>
-                    <div class="nicdark_margin20">
-                        <h5 class="white"><i class="icon-pin-outline"></i> New York, Times Square</h5>
-                        <div class="nicdark_space10"></div>
-                        <h5 class="white"><i class="icon-clock-1"></i> 9:00 To 14:00</h5>
-                        <div class="nicdark_space20"></div>
-                        <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
-                        <div class="nicdark_space20"></div>
-                        <p class="white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt rutrum.</p>
-                        <div class="nicdark_space20"></div>
-                        <a href="single-event.php.html" class="nicdark_press nicdark_btn nicdark_bg_yellowdark white nicdark_radius nicdark_shadow medium">CHECK IT</a>
-                    </div>
-                </div>
-                <!--archive1-->
-            </div>
-            {# end program 3 #}
-
-            {# program 4 #}
-            <div class="grid grid_3">
-                <!--archive1-->
-                <div class="nicdark_archive1 nicdark_bg_orange nicdark_radius nicdark_shadow">
-                    <a href="events.php.html#" class="nicdark_btn nicdark_bg_greydark white medium nicdark_radius nicdark_absolute_left">30<br/><small>DEC</small></a>
-                    <img alt=""  src="{% static "kidsfm/img/events/img4.jpg" %}">
-                    <div class="nicdark_textevidence nicdark_bg_greydark">
-                        <h4 class="white nicdark_margin20">SPORT ACTIVITIES</h4>
-                    </div>
-                    <div class="nicdark_margin20">
-                        <h5 class="white"><i class="icon-pin-outline"></i> New York, Times Square</h5>
-                        <div class="nicdark_space10"></div>
-                        <h5 class="white"><i class="icon-clock-1"></i> 9:00 To 14:00</h5>
-                        <div class="nicdark_space20"></div>
-                        <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
-                        <div class="nicdark_space20"></div>
-                        <p class="white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt rutrum.</p>
-                        <div class="nicdark_space20"></div>
-                        <a href="single-event.php.html" class="nicdark_press nicdark_btn nicdark_bg_orangedark white nicdark_radius nicdark_shadow medium">CHECK IT</a>
-                    </div>
-                </div>
-                <!--archive1-->
-            </div>
-            {# end program 4 #}
-
-            {# program 5 #}
-            <div class="grid grid_3">
-                <!--archive1-->
-                <div class="nicdark_archive1 nicdark_bg_orange nicdark_radius nicdark_shadow">
-                    <a href="events.php.html#" class="nicdark_btn nicdark_bg_greydark white medium nicdark_radius nicdark_absolute_left">21<br/><small>DEC</small></a>
-                    <img alt=""  src="{% static "kidsfm/img/excursions/img4.jpg" %}">
-                    <div class="nicdark_textevidence nicdark_bg_greydark">
-                        <h4 class="white nicdark_margin20">MUSIC PRACTICE</h4>
-                    </div>
-                    <div class="nicdark_margin20">
-                        <h5 class="white"><i class="icon-pin-outline"></i> New York, Times Square</h5>
-                        <div class="nicdark_space10"></div>
-                        <h5 class="white"><i class="icon-clock-1"></i> 9:00 To 14:00</h5>
-                        <div class="nicdark_space20"></div>
-                        <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
-                        <div class="nicdark_space20"></div>
-                        <p class="white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt rutrum.</p>
-                        <div class="nicdark_space20"></div>
-                        <a href="single-event.php.html" class="nicdark_press nicdark_btn nicdark_bg_orangedark white nicdark_radius nicdark_shadow medium">CHECK IT</a>
-                    </div>
-                </div>
-                <!--archive1-->
-            </div>
-            {# end program 5 #}
-
-            {# program 6 #}
-            <div class="grid grid_3">
-                <!--archive1-->
-                <div class="nicdark_archive1 nicdark_bg_violet nicdark_radius nicdark_shadow">
-                    <a href="events.php.html#" class="nicdark_btn nicdark_bg_greydark white medium nicdark_radius nicdark_absolute_left">10<br/><small>MAY</small></a>
-                    <img alt=""  src="{% static "kidsfm/img/excursions/img6.jpg" %}">                    
-                    <div class="nicdark_textevidence nicdark_bg_greydark">
-                        <h4 class="white nicdark_margin20">ORIENTIRING</h4>
-                    </div>
-                    <div class="nicdark_margin20">
-                        <h5 class="white"><i class="icon-pin-outline"></i> New York, Times Square</h5>
-                        <div class="nicdark_space10"></div>
-                        <h5 class="white"><i class="icon-clock-1"></i> 9:00 To 14:00</h5>
-                        <div class="nicdark_space20"></div>
-                        <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
-                        <div class="nicdark_space20"></div>
-                        <p class="white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt rutrum.</p>
-                        <div class="nicdark_space20"></div>
-                        <a href="single-event.php.html" class="nicdark_press nicdark_btn nicdark_bg_violetdark white nicdark_radius nicdark_shadow medium">CHECK IT</a>
-                    </div>
-                </div>
-                <!--archive1-->
-            </div>
-            {# end program 6 #}
-
-            {# program 7 #}
-            <div class="grid grid_3">
-                <!--archive1-->
-                <div class="nicdark_archive1 nicdark_bg_blue nicdark_radius nicdark_shadow">
-                    <a href="events.php.html#" class="nicdark_btn nicdark_bg_greydark white medium nicdark_radius nicdark_absolute_left">24<br/><small>MAR</small></a>
-                    <img alt=""  src="{% static "kidsfm/img/excursions/img1.jpg" %}">                    
-                    <div class="nicdark_textevidence nicdark_bg_greydark">
-                        <h4 class="white nicdark_margin20">SCHOOL PARTY</h4>
-                    </div>
-                    <div class="nicdark_margin20">
-                        <h5 class="white"><i class="icon-pin-outline"></i> New York, Times Square</h5>
-                        <div class="nicdark_space10"></div>
-                        <h5 class="white"><i class="icon-clock-1"></i> 9:00 To 14:00</h5>
-                        <div class="nicdark_space20"></div>
-                        <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
-                        <div class="nicdark_space20"></div>
-                        <p class="white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt rutrum.</p>
-                        <div class="nicdark_space20"></div>
-                        <a href="single-event.php.html" class="nicdark_press nicdark_btn nicdark_bg_bluedark white nicdark_radius nicdark_shadow medium">CHECK IT</a>
-                    </div>
-                </div>
-                <!--archive1-->
-            </div>
-            {# end program 7 #}
-
-            {# program 8 #}
-            <div class="grid grid_3">
-                <!--archive1-->
-                <div class="nicdark_archive1 nicdark_bg_red nicdark_radius nicdark_shadow">
-                    <a href="events.php.html#" class="nicdark_btn nicdark_bg_greydark white medium nicdark_radius nicdark_absolute_left">30<br/><small>DEC</small></a>
-                    <img alt=""  src="{% static "kidsfm/img/excursions/img7.jpg" %}">
-                    <div class="nicdark_textevidence nicdark_bg_greydark">
-                        <h4 class="white nicdark_margin20">BAKE OFF</h4>
-                    </div>
-                    <div class="nicdark_margin20">
-                        <h5 class="white"><i class="icon-pin-outline"></i> New York, Times Square</h5>
-                        <div class="nicdark_space10"></div>
-                        <h5 class="white"><i class="icon-clock-1"></i> 9:00 To 14:00</h5>
-                        <div class="nicdark_space20"></div>
-                        <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
-                        <div class="nicdark_space20"></div>
-                        <p class="white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt rutrum.</p>
-                        <div class="nicdark_space20"></div>
-                        <a href="single-event.php.html" class="nicdark_press nicdark_btn nicdark_bg_reddark white nicdark_radius nicdark_shadow medium">CHECK IT</a>
-                    </div>
-                </div>
-                <!--archive1-->
-            </div>
-            {# end program 8 #}
-
+            {% endfor %}
+            <div class="nicdark_space50"></div>
        </div>
-       <!--end nicdark_container-->
     </section>
     <!--end section-->
     {# end programs #}
 
 
 	{# page navigation buttons #}
-    <!--start section-->
+    <!--
     <div class="nicdark_section">
-        <!--start nicdark_container-->
         <div class="nicdark_container nicdark_clearfix">
             <div class="nicdark_space40"></div>
             {# prev #}
@@ -319,9 +164,8 @@
             {# end next #}
             <div class="nicdark_space50"></div>
         </div>
-        <!--end nicdark_container-->
     </div>
-    <!--end section-->
+    -->
     {# page navigation buttons #}
 
 
