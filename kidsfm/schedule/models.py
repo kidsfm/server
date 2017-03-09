@@ -10,6 +10,12 @@ class Program(models.Model):
 	'''
 	title		= models.CharField(max_length=50)
 	description	= models.TextField()
+
+	# ToDo
+	# - find a way to overwrite profile images instead of duplicating them
+	# see: http://stackoverflow.com/a/8342249
+	image		= models.ImageField(upload_to='img/schedule/program')
+
 	start_time 	= models.TimeField()
 	end_time	= models.TimeField()
 	start_date	= models.DateField()
