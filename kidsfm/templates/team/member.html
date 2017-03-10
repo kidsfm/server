@@ -73,9 +73,14 @@
                 <div class="nicdark_space20"></div>
                 <div class="nicdark_divider left small"><span class="nicdark_bg_blue nicdark_radius"></span></div>
                 <div class="nicdark_space20"></div>
-                <p>
-                    {{ member.bio }}
-                </p>
+                <div class="description">
+                    <p>
+                    <span class="white nicdark_dropcap nicdark_bg_blue nicdark_radius nicdark_shadow">
+                        {{ member.bio | slice:":1" }}
+                    </span>
+                    {{ member.bio | slice:"1:" | linebreaks }}
+                    </p>
+                </div>
             </div>
 
 
