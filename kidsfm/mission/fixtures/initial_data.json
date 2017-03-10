@@ -4,7 +4,7 @@
     	"pk": 1,
     	"fields": {
 			"title": "Programming",
-			"description": "You can count on us to fill your airwaves with wonderful content at any time of the day or night.",
+			"description": "You can count on us to fill your airwaves with wonderful content at any time of the day or night. Lorem commodo lectus at sollicitudin elementum. Sed dolor turpis, condimentum sit amet maximus sit amet, rhoncus non turpis. Aenean convallis ac lorem et sodales. Sed dictum vel orci nec rhoncus. Donec quis porttitor arcu. Nulla ut justo quis augue commodo mattis nec vel ante.\r\n\r\nLorem commodo lectus at sollicitudin elementum. Sed dolor turpis, condimentum sit amet maximus sit amet, rhoncus non turpis. Aenean convallis ac lorem et sodales. Sed dictum vel orci nec rhoncus. Donec quis porttitor arcu. Nulla ut justo quis augue commodo mattis nec vel ante.\r\n\r\nLorem commodo lectus at sollicitudin elementum. Sed dolor turpis, condimentum sit amet maximus sit amet, rhoncus non turpis. Aenean convallis ac lorem et sodales. Sed dictum vel orci nec rhoncus. Donec quis porttitor arcu. Nulla ut justo quis augue commodo mattis nec vel ante.",
 			"image": "img/mission/statement/img1.jpg",
 			"slug": "Programming"
 		}
@@ -14,7 +14,7 @@
     	"pk": 2,
     	"fields": {
 			"title": "Music",
-			"description": "From timeless classics to the latest tunes, we select only the best music for you child.",
+			"description": "From timeless classics to the latest tunes, we select only the best music for you child. Lorem commodo lectus at sollicitudin elementum. Sed dolor turpis, condimentum sit amet maximus sit amet, rhoncus non turpis. Aenean convallis ac lorem et sodales. Sed dictum vel orci nec rhoncus. Donec quis porttitor arcu. Nulla ut justo quis augue commodo mattis nec vel ante.\r\n\r\nLorem commodo lectus at sollicitudin elementum. Sed dolor turpis, condimentum sit amet maximus sit amet, rhoncus non turpis. Aenean convallis ac lorem et sodales. Sed dictum vel orci nec rhoncus. Donec quis porttitor arcu. Nulla ut justo quis augue commodo mattis nec vel ante.\r\n\r\nLorem commodo lectus at sollicitudin elementum. Sed dolor turpis, condimentum sit amet maximus sit amet, rhoncus non turpis. Aenean convallis ac lorem et sodales. Sed dictum vel orci nec rhoncus. Donec quis porttitor arcu. Nulla ut justo quis augue commodo mattis nec vel ante.",
 			"image": "img/mission/statement/img2.jpg",
 			"slug": "Music"
 		}
@@ -24,7 +24,7 @@
     	"pk": 3,
     	"fields": {
 			"title": "Languages",
-			"description": "Our programming includes a mixture of Creole, French, English and Spanish content.",
+			"description": "Our programming includes a mixture of Creole, French, English and Spanish content. Lorem commodo lectus at sollicitudin elementum. Sed dolor turpis, condimentum sit amet maximus sit amet, rhoncus non turpis. Aenean convallis ac lorem et sodales. Sed dictum vel orci nec rhoncus. Donec quis porttitor arcu. Nulla ut justo quis augue commodo mattis nec vel ante.\r\n\r\nLorem commodo lectus at sollicitudin elementum. Sed dolor turpis, condimentum sit amet maximus sit amet, rhoncus non turpis. Aenean convallis ac lorem et sodales. Sed dictum vel orci nec rhoncus. Donec quis porttitor arcu. Nulla ut justo quis augue commodo mattis nec vel ante.\r\n\r\nLorem commodo lectus at sollicitudin elementum. Sed dolor turpis, condimentum sit amet maximus sit amet, rhoncus non turpis. Aenean convallis ac lorem et sodales. Sed dictum vel orci nec rhoncus. Donec quis porttitor arcu. Nulla ut justo quis augue commodo mattis nec vel ante.",
 			"image": "img/mission/statement/img3.jpg",
 			"slug": "Languages"
 		}
