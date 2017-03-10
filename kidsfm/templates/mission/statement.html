@@ -37,12 +37,12 @@
     <section class="nicdark_section">
         <div class="nicdark_container nicdark_clearfix">
             <div class="nicdark_space50"></div>
-            <div class="grid grid_8">
+            <div class="grid grid_8 description">
                 <p>
                 	<span class="white nicdark_dropcap nicdark_bg_yellow nicdark_radius nicdark_shadow">
                 		{{ statement.description | slice:":1" }}
                 	</span>
-                	{{ statement.description | slice:"1:" }}
+                	{{ statement.description | slice:"1:" | linebreaks }}
                 </p>
                 <div class="nicdark_space50"></div>
             	<div class="nicdark_space50"></div>
