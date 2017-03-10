@@ -5,10 +5,38 @@
 **/
 
 
-// Contact
-// URL:		/contact/
+/* 
+	Contact
+	URL:		/contact/
+*/
 input[type="email"].small { 
-	font-size	: 15px 	!important; 
+	font-size	: 15px 		!important; 
 	width		: 90% 		!important; 
 	padding		: 10px 5% 	!important; 
 }
+
+
+
+/* 
+	bio & description fields
+	these rules adds spacing between paragraphs of long text-fields
+*/
+.description p {
+	display		: inline-block 	!important;
+	margin-top	: 20px 			!important;
+}
+
+.description p:first-child {
+	display		: inline 		!important;
+	margin-top	: 0px 			!important;
+}
+
+.description p:nth-child(2) {
+	display		: inline 		!important;
+}
+
+
+
+
+
+
