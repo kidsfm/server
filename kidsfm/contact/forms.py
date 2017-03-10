@@ -9,9 +9,8 @@ class MessageForm(forms.Form):
 	"""
 	name 	= forms.CharField(
 					required=True,
-					widget=forms.Textarea(
+					widget=forms.TextInput(
 						attrs={
-						'rows': 1, 
 						'class': 'nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle',
 						'placeholder': 'Name'
 						}
@@ -21,19 +20,8 @@ class MessageForm(forms.Form):
 
 	email 	= forms.CharField(
 					required=True,
-
-					# ToDo:
-					# - change the widget back to an EmailInput
-					#
-					#widget=forms.EmailInput(
-					#	attrs={
-					#	'class': 'nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle',
-					#	'placeholder': 'Email'
-					#	}
-					#)
-					widget=forms.Textarea(
+					widget=forms.EmailInput(
 						attrs={
-						'rows': 1, 
 						'class': 'nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle',
 						'placeholder': 'Email'
 						}
@@ -54,6 +42,4 @@ class MessageForm(forms.Form):
 
 
 
-# <input class="" type="text" value="" placeholder="EMAIL">
 
-# <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" type="text" value="" placeholder="NAME">
