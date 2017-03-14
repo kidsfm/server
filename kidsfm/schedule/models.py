@@ -42,8 +42,14 @@ class Program(models.Model):
 
 
 	# ToDo:
+	#
 	# - verify that end_time is scheduled after start_time
 	# - verify that end_date is scheduled after start_date
+	#
+	# - sanetize slug using: from django.utils.text import slugify
+	#	see: https://keyerror.com/blog/automatically-generating-unique-slugs-in-django
+	#	see: https://docs.djangoproject.com/en/1.10/ref/utils/#module-django.utils.text
+	#
 	#def save(self, *args, **kwargs):
 	#	if self.is_primary:
 	#		try:
