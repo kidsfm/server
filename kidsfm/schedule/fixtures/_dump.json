@@ -1,72 +1,90 @@
 [
-  {
-    "model": "schedule.program",
-    "pk": 1,
-    "fields": {
-      "title": "Bonjour Haiti",
-      "description": "Lorem commodo lectus at sollicitudin elementum. Sed dolor turpis, condimentum sit amet maximus sit amet, rhoncus non turpis. Aenean convallis ac lorem et sodales. Sed dictum vel orci nec rhoncus. Donec quis porttitor arcu. Nulla ut justo quis augue commodo mattis nec vel ante.\r\n\r\nLorem commodo lectus at sollicitudin elementum. Sed dolor turpis, condimentum sit amet maximus sit amet, rhoncus non turpis. Aenean convallis ac lorem et sodales. Sed dictum vel orci nec rhoncus. Donec quis porttitor arcu. Nulla ut justo quis augue commodo mattis nec vel ante.\r\n\r\nLorem commodo lectus at sollicitudin elementum. Sed dolor turpis, condimentum sit amet maximus sit amet, rhoncus non turpis. Aenean convallis ac lorem et sodales. Sed dictum vel orci nec rhoncus. Donec quis porttitor arcu. Nulla ut justo quis augue commodo mattis nec vel ante.",
-      "start_time": "12:00:00",
-      "end_time": "18:00:00",
-      "start_date": "2017-03-08",
-      "end_date": "2017-05-26",
-      "frequency": [
-        1,
-        4
-      ],
-      "team": [
-        2,
-        3,
-        6
-      ]
-    }
-  },
-  {
-    "model": "schedule.day",
-    "pk": 1,
-    "fields": {
-      "label": "Sunday"
-    }
-  },
-  {
-    "model": "schedule.day",
-    "pk": 2,
-    "fields": {
-      "label": "Monday"
-    }
-  },
-  {
-    "model": "schedule.day",
-    "pk": 3,
-    "fields": {
-      "label": "Tuesday"
-    }
-  },
-  {
-    "model": "schedule.day",
-    "pk": 4,
-    "fields": {
-      "label": "Wednesday"
-    }
-  },
-  {
-    "model": "schedule.day",
-    "pk": 5,
-    "fields": {
-      "label": "Thursday"
-    }
-  },
-  {
-    "model": "schedule.day",
-    "pk": 6,
-    "fields": {
-      "label": "Friday"
-    }
-  },
-  {
-    "model": "schedule.day",
-    "pk": 7,
-    "fields": {
-      "label": "Saturday"
-    }
-  }
+	{
+		"model": "schedule.program",
+		"pk": 1,
+		"fields": {
+			"title": "Bonjour Haiti",
+			"description": "Lorem commodo lectus at sollicitudin elementum. Sed dolor turpis, condimentum sit amet maximus sit amet, rhoncus non turpis. Aenean convallis ac lorem et sodales. Sed dictum vel orci nec rhoncus. Donec quis porttitor arcu. Nulla ut justo quis augue commodo mattis nec vel ante.\r\n\r\nLorem commodo lectus at sollicitudin elementum. Sed dolor turpis, condimentum sit amet maximus sit amet, rhoncus non turpis. Aenean convallis ac lorem et sodales. Sed dictum vel orci nec rhoncus. Donec quis porttitor arcu. Nulla ut justo quis augue commodo mattis nec vel ante.\r\n\r\nLorem commodo lectus at sollicitudin elementum. Sed dolor turpis, condimentum sit amet maximus sit amet, rhoncus non turpis. Aenean convallis ac lorem et sodales. Sed dictum vel orci nec rhoncus. Donec quis porttitor arcu. Nulla ut justo quis augue commodo mattis nec vel ante.",
+			"image": "img\/schedule\/program\/img1.jpg",
+			"slug": "bonjour-haiti",
+			"team": [
+			2,
+			3,
+			6
+			]
+		}
+	},
+	{
+		"model": "schedule.slot",
+		"pk": 1,
+		"fields": {
+			"day": 1,
+			"program": 1,
+			"start_time": "10:00:00",
+			"end_time": "11:00:00",
+			"start_date": "2017-02-01",
+			"end_date": "2017-05-20"
+		}
+	},
+	{
+		"model": "schedule.slot",
+		"pk": 2,
+		"fields": {
+			"day": 3,
+			"program": 1,
+			"start_time": "18:00:00",
+			"end_time": "19:00:00",
+			"start_date": "2016-12-15",
+			"end_date": "2017-09-15"
+		}
+	},
+	{
+	"model": "schedule.day",
+	"pk": 1,
+	"fields": {
+	"label": "Sunday"
+	}
+	},
+	{
+	"model": "schedule.day",
+	"pk": 2,
+	"fields": {
+	"label": "Monday"
+	}
+	},
+	{
+	"model": "schedule.day",
+	"pk": 3,
+	"fields": {
+	"label": "Tuesday"
+	}
+	},
+	{
+	"model": "schedule.day",
+	"pk": 4,
+	"fields": {
+	"label": "Wednesday"
+	}
+	},
+	{
+	"model": "schedule.day",
+	"pk": 5,
+	"fields": {
+	"label": "Thursday"
+	}
+	},
+	{
+	"model": "schedule.day",
+	"pk": 6,
+	"fields": {
+	"label": "Friday"
+	}
+	},
+	{
+	"model": "schedule.day",
+	"pk": 7,
+	"fields": {
+	"label": "Saturday"
+	}
+	}
 ]

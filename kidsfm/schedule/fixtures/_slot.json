@@ -1,0 +1,26 @@
+[
+	{
+		"model": "schedule.slot",
+		"pk": 1,
+		"fields": {
+			"day": 1,
+			"program": 1,
+			"start_time": "10:00:00",
+			"end_time": "11:00:00",
+			"start_date": "2017-02-01",
+			"end_date": "2017-05-20"
+		}
+	},
+	{
+		"model": "schedule.slot",
+		"pk": 2,
+		"fields": {
+			"day": 3,
+			"program": 1,
+			"start_time": "18:00:00",
+			"end_time": "19:00:00",
+			"start_date": "2016-12-15",
+			"end_date": "2017-09-15"
+		}
+	}
+]
