@@ -96,11 +96,6 @@ class Programs_json(View):
 										fields=(
 												'title',
 												'description',
-												'start_time',
-												'end_time',
-												'start_date',
-												'end_date',
-												'frequency',
 												'team',
 												'slug',
 												)
