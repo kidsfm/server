@@ -18,7 +18,7 @@ class Member(models.Model):
 	# see: http://stackoverflow.com/a/8342249
 	profile_img		= models.ImageField(upload_to='img/team/profile')
 
-	interest		= models.ManyToManyField('Interest')
+	#interest		= models.ManyToManyField('Interest')
 	role 			= models.ForeignKey('Role', on_delete=models.CASCADE, default=1)
 	email			= models.EmailField(blank=True)
 	portfolio		= models.URLField(max_length=300,blank=True)
@@ -68,8 +68,9 @@ class Interest(models.Model):
 	Interest model
 	defines possible interest for a Member
 	'''
-	label			= models.CharField(max_length=50)
-	description 	= models.CharField(max_length=200,blank=True)
+	label		= models.CharField(max_length=50)
+	description = models.CharField(max_length=200,blank=True)
+	member 		= models.ForeignKey('Member', on_delete=models.CASCADE)
 
 
 	# ToDo:

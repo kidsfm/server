@@ -4,6 +4,14 @@ from .models		import Member, Interest, Role
 
 
 
+# Config inline admin form for Interest model
+class InterestInline(admin.TabularInline):
+    model   = Interest
+    extra   = 1
+    max_num = 5
+
+
+
 # Config admin form for Member model
 class MemberAdmin(admin.ModelAdmin):
     form = MemberAdminForm
@@ -15,6 +23,9 @@ class MemberAdmin(admin.ModelAdmin):
     	'first_name',
     	'last_name',
     	'role',
+    ]
+    inlines = [
+        InterestInline,
     ]
 
 # Register Member model and admin form
@@ -34,15 +45,15 @@ admin.site.register(Role, RoleAdmin)
 
 
 
-# Config admin form for Member model
-class InterestAdmin(admin.ModelAdmin):
-    list_display = [
-    	'label',
-    	'description',
-    ]
-
-# Register Interest model and admin form
-admin.site.register(Interest, InterestAdmin)
+## Config admin form for Member model
+#class InterestAdmin(admin.ModelAdmin):
+#    list_display = [
+#    	'label',
+#    	'description',
+#    ]
+#
+## Register Interest model and admin form
+#admin.site.register(Interest, InterestAdmin)
 
 
 
