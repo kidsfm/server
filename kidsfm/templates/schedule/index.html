@@ -55,8 +55,13 @@
         <div class="nicdark_container nicdark_clearfix">
             <div class="nicdark_space50"></div>
 
+
+
             {# header #}
-            <!--
+<!--
+    Disabled:
+    - Section Header
+
             <div class="grid grid_12">
                 <h1 class="subtitle greydark">OUR EVENTS</h1>
                 <div class="nicdark_space20"></div>
@@ -65,12 +70,16 @@
                 <div class="nicdark_divider left big"><span class="nicdark_bg_green nicdark_radius"></span></div>
                 <div class="nicdark_space10"></div>
             </div>
-            -->
+-->
             {# end header #}
 
 
+
             {# filter widget #}
-            <!--
+<!--
+    Disabled:
+    - filter widget
+
             <div class="grid grid_12 nicdark_bg_grey nicdark_shadow nicdark_radius nicdark_relative">
                 <a href="events.php.html#" class="nicdark_displaynone_iphoneland nicdark_displaynone_iphonepotr nicdark_btn_icon nicdark_bg_green  extrabig nicdark_radius_left white nicdark_absolute"><i class="icon-search-2"></i></a>
                 <div class="nicdark_textevidence">
@@ -101,7 +110,7 @@
                 </div>
             </div>
             <div class="nicdark_space10"></div>
-            -->
+-->
             {# end filter widget #}
 
 
@@ -109,12 +118,18 @@
             <!-- program {{ forloop.counter }} -->
             <div class="grid grid_3">
                 <div class="nicdark_archive1 nicdark_bg_green nicdark_radius nicdark_shadow">
+                    
+<!--
+    Disabled:
+    - program frequency label
+
                     <a href="/schedule/programs/{{ program.slug }}" class="nicdark_btn nicdark_bg_greydark white medium nicdark_radius nicdark_absolute_left">
                         {% for frequency in program.frequency.all %}
                         <small>{{ frequency | stringformat:".3s" }}</small>&nbsp;
                         {% endfor %}
                         
                     </a>
+-->
                     <a href="/schedule/programs/{{ program.slug }}">
                         <img alt="{{ program.title }} cover image"  src="{{ program.image.url }}">
                     </a>
@@ -122,16 +137,23 @@
                         <h4 class="white nicdark_margin20">{{ program.title | capfirst }}</h4>
                     </div>
                     <div class="nicdark_margin20">
+
+<!--
+    Disabled:
+    - start-time & end-time labels
+
                         <h5 class="white">
                             <i class="icon-clock-1"></i>&nbsp;&nbsp;{{ program.start_time | date:"g:i A" | lower }} &nbsp;-&nbsp; {{ program.end_time | date:"g:i A" | lower }}
                         </h5>
                         <div class="nicdark_space20"></div>
                         <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
-                        <div class="nicdark_space20"></div>
+-->
+
+                        <div class="nicdark_space10"></div>
                         <p class="white">
                             {{ program.description | capfirst | truncatechars:80 }}
                         </p>
-                        <div class="nicdark_space20"></div>
+                        <div class="nicdark_space30"></div>
                         <a href="/schedule/programs/{{ program.slug }}" class="nicdark_press nicdark_btn nicdark_bg_greendark white nicdark_radius nicdark_shadow medium">
                             Learn more
                         </a>
