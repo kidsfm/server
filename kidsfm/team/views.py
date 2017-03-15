@@ -198,7 +198,8 @@ class Interests_json(View):
 										list(interest_data), 
 										fields=(
 													'label',
-													'description'
+													'description',
+													'member',
 												)
 									)
 		return HttpResponse(data, content_type="application/json")
@@ -227,7 +228,7 @@ def fetch_interest_data(query):
 	# fetch member-id
 	try:
 		if query['member-id'] is not None:
-			kwargs['member__id'] = query['member-id']
+			kwargs['member_id'] = int(query['member-id'])
 	except:
 		pass
 
