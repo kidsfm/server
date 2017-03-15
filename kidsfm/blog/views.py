@@ -3,9 +3,9 @@ from django.template	import loader
 
 
 def Index(request):
-	"""
+	'''
 	Article index recheable from /blog/ URL
-	"""
+	'''
 	template 	= loader.get_template('blog/index.html')
 	context 	= {}
 	return HttpResponse(template.render(context,request))

@@ -1,14 +1,22 @@
 from django.conf.urls	import url
-from . 					import views
+from .views 			import Index, Article
 
 
 urlpatterns = [
 
 	# /blog/
-	url(r'^$', 								views.Index, 	name='index'),
+	url(
+			r'^$',
+			Index,
+			name='index'
+	),
 
 	# /blog/<article-slug>
-	url(r'^(?P<article_slug>[\w\-]+)/$', 	views.Article, 	name='article'),
+	url(
+			r'^(?P<article_slug>[\w\-]+)/$',
+			Article,
+			name='article'
+	),
 ]
 
 
