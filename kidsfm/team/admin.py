@@ -6,7 +6,7 @@ from .models		import Member, Interest, Role
 
 # Config inline admin form for Interest model
 class InterestInline(admin.TabularInline):
-    model   = Interest
+    model   = Member.interests.through
     extra   = 1
     max_num = 5
 
@@ -27,6 +27,7 @@ class MemberAdmin(admin.ModelAdmin):
     inlines = [
         InterestInline,
     ]
+    exclude = ('interests',)
 
 # Register Member model and admin form
 admin.site.register(Member, MemberAdmin)
@@ -45,15 +46,15 @@ admin.site.register(Role, RoleAdmin)
 
 
 
-## Config admin form for Member model
-#class InterestAdmin(admin.ModelAdmin):
-#    list_display = [
-#    	'label',
-#    	'description',
-#    ]
-#
-## Register Interest model and admin form
-#admin.site.register(Interest, InterestAdmin)
+# Config admin form for Member model
+class InterestAdmin(admin.ModelAdmin):
+    list_display = [
+    	'label',
+    	'description',
+    ]
+
+# Register Interest model and admin form
+admin.site.register(Interest, InterestAdmin)
 
 
 

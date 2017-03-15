@@ -90,7 +90,7 @@
                 <div class="nicdark_divider left small"><span class="nicdark_bg_yellow nicdark_radius"></span></div>
                 
                 
-                {% for interest in interests %}
+                {% for interest in member.interests.all %}
                 <div class="nicdark_space20"></div>
                 <div class="nicdark_progressbar nicdark_bg_grey nicdark_radius nicdark_shadow">
                     <h5 class="nicdark_progressbar_title nicdark_bg_{% cycle 'blue' 'yellow' 'green' 'violet' 'orange' 'red' as bg_color %} nicdark_bg_yellowdark_hover nicdark_radius nicdark_shadow fade-left animate1 animated fadeInLeft" style="width:100%">

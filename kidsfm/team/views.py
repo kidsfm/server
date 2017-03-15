@@ -62,14 +62,9 @@ class Members(View):
 		member_data 	= fetch_member_data({'slug':member_slug}).first()
 
 
-		# fetch Interest data for this member
-		interest_data 	= fetch_interest_data({'member-id':member_data.id})
-
-
 		# load data in context container
 		context = {
 			"member" 	: member_data,
-			"interests" : interest_data,
 		}
 
 		# render template with data & send HTML to client
@@ -175,7 +170,7 @@ class Interests_json(View):
 
 	URL: 	
 	- /team/interests/
-	- /team/interests?<id=1&label=host&member-id=2>
+	- /team/interests?<id=1&label=host>
 
 	ToDo:
 	- validate query & send "bad format" status code if invalid
@@ -186,7 +181,6 @@ class Interests_json(View):
 		query = {
 			'id'		: request.GET.get('id', None),
 			'label'		: request.GET.get('label', None),
-			'member-id'	: request.GET.get('member-id', None),
 		}
 
 		# fetch data
@@ -199,7 +193,6 @@ class Interests_json(View):
 										fields=(
 													'label',
 													'description',
-													'member',
 												)
 									)
 		return HttpResponse(data, content_type="application/json")
@@ -222,13 +215,6 @@ def fetch_interest_data(query):
 	try:
 		if query['label'] is not None:
 			kwargs['label__icontains'] = query['label']
-	except:
-		pass
-
-	# fetch member-id
-	try:
-		if query['member-id'] is not None:
-			kwargs['member_id'] = int(query['member-id'])
 	except:
 		pass
 
