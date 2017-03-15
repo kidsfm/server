@@ -1,5 +1,5 @@
 from django.conf.urls	import url
-from .views 			import Index, Programs, Programs_json
+from .views 			import Index, Programs, Programs_json, Timeslots_json
 
 
 urlpatterns = [
@@ -26,6 +26,15 @@ urlpatterns = [
 			r'^programs/$',
 			Programs_json.as_view(),
 			name='programs_json'
+	),
+
+
+	# /schedule/timeslots/
+	# /schedule/timeslots?<offset=0&limit=4&program-id=1>
+	url(
+			r'^timeslots/$',
+			Timeslots_json.as_view(),
+			name='timeslots_json'
 	),
 
 ]
