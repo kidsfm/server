@@ -15,7 +15,11 @@ class Article(models.Model):
 	# ToDo
 	# - find a way to overwrite profile images instead of duplicating them
 	# see: http://stackoverflow.com/a/8342249
-	image		= models.ImageField(upload_to='img/blog/article')
+	image		= models.ImageField(
+						upload_to='img/blog/article',
+						blank=True,
+						null=True
+	)
 
 	author		= models.ForeignKey(
 						Member, 
