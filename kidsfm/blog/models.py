@@ -9,26 +9,30 @@ class Article(models.Model):
 	Article model
 	defines attributes for a single Article object of the Blog app
 	'''
-	title		= models.CharField(max_length=50,unique=True)
-	content		= models.TextField()
+	title			= models.CharField(
+							max_length=50,
+							unique=True
+	)
+	content			= models.TextField()
 
 	# ToDo
 	# - find a way to overwrite profile images instead of duplicating them
 	# see: http://stackoverflow.com/a/8342249
-	image		= models.ImageField(
-						upload_to='img/blog/article',
-						blank=True,
-						null=True
+	image			= models.ImageField(
+							upload_to='img/blog/article',
+							blank=True,
+							null=True
 	)
 
-	author		= models.ForeignKey(
-						Member, 
-						on_delete=models.CASCADE
+	author			= models.ForeignKey(
+							Member, 
+							on_delete=models.CASCADE
 	)
-	slug 		= AutoSlugField(
-						max_length=50, 
-						unique=True, 
-						populate_from=('title')
+	published_on 	= models.DateTimeField()
+	slug 			= AutoSlugField(
+							max_length=50, 
+							unique=True, 
+							populate_from=('title')
 	)
 	
 
