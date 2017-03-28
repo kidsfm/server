@@ -1,5 +1,5 @@
 from django.conf.urls	import url
-from .views 			import Index, Article
+from .views 			import Index, Articles
 
 
 urlpatterns = [
@@ -7,14 +7,14 @@ urlpatterns = [
 	# /blog/
 	url(
 			r'^$',
-			Index,
+			Index.as_view(),
 			name='index'
 	),
 
-	# /blog/<article-slug>
+	# /blog/articles/<article-slug>
 	url(
-			r'^(?P<article_slug>[\w\-]+)/$',
-			Article,
+			r'^articles/(?P<article_slug>[\w\-]+)/$',
+			Articles.as_view(),
 			name='article'
 	),
 ]
