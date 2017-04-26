@@ -22,5 +22,9 @@ migrations
 *.jpg
 
 # secret files (authentication, DB, system)
-settings.py
+settings.py*
+wsgi.py*
 _secrets/
+
+# project archive file
+kidsfm.zip
