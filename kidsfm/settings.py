@@ -79,6 +79,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'kidsfm.wsgi.application'
 
 
