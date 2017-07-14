@@ -1,0 +1,12 @@
+[
+	{
+		"model": "contact.Message",
+    	"pk": 1,
+    	"fields": {
+			"name": "Randy Champagne",
+			"email": "randy@rcwd.com",
+			"message": "Hello, it is nice to speak with you",
+			"sent_date": "2017-03-07 15:31:54"
+		}
+	}
+]
