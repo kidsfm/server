@@ -1,66 +1,44 @@
-![mobble](http://cloud.scott.ee/images/mobble.png)
+# python-getting-started
 
-# Development
+A barebones Python app, which can easily be deployed to Heroku.
 
-* Contributors: [@randychampagne](http://twitter.com/randychampagne)
-* Description: This is the CMS development environment
-* Author: [Randy Champagne](http://www.randychampagne.com)
-* Author URI: [http://www.randychampagne.com](http://www.randychampagne.com)
-* License: GNU General Public License v3.0
-* License URI: [http://www.gnu.org/licenses/gpl-3.0.html](http://www.gnu.org/licenses/gpl-3.0.html)
+This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
 
+## Running Locally
 
+Make sure you have Python [installed properly](http://install.python-guide.org).  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/) and [Postgres](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup).
 
+```sh
+$ git clone git@github.com:heroku/python-getting-started.git
+$ cd python-getting-started
 
-## About
+$ pip install -r requirements.txt
 
-**[Kids FM](http://kidsfm.org/)<br>Port au Prince, Haiti**
+$ createdb python_getting_started
 
-Description Comming Soon
+$ python manage.py migrate
+$ python manage.py collectstatic
 
+$ heroku local
+```
 
+Your app should now be running on [localhost:5000](http://localhost:5000/).
 
+## Deploying to Heroku
 
+```sh
+$ heroku create
+$ git push heroku master
 
-## Tech Highlight
+$ heroku run python manage.py migrate
+$ heroku open
+```
+or
 
-* [Django](https://www.djangoproject.com/) web framework
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
+## Documentation
 
+For more information about using Python on Heroku, see these Dev Center articles:
 
-
-
-## Installation
-
-* clone this repository <br>
-```git clone "https://github.com/kidsfm/cms.git kidsfm```
-* change to project dir <br>
-```cd kidsfm```
-* install dependencies <br>
-```pip install -r ./kidsfm/requirements.txt```
-* launch dev server <br>
-```python ./kidsfm/manage.py runserver_plus```
-
-
-
-
-
-### run build recipe
-
-* comming soon
-
-
-
-
-
-### run tests
-
-* comming soon
-
-
-
-
-## Changelog
-
-###0.0.1
-* Initial development.
+- [Python on Heroku](https://devcenter.heroku.com/categories/python)

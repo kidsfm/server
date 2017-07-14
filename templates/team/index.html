@@ -1,0 +1,111 @@
+{% extends "kidsfm/base.html" %}
+{% load staticfiles %}
+
+
+{% block metadata %}
+    <title>Team - Kids FM</title>
+{% endblock %}
+
+
+{% block content %}
+	
+	{# jumbotron #}
+	<!--start section-->
+    <section id="nicdark_parallax_title" class="nicdark_section nicdark_imgparallax nicdark_parallaxx_img-teachers-1">
+        <div class="nicdark_filter greydark">
+            <div class="nicdark_container nicdark_clearfix">
+                <div class="grid grid_12">
+                    <div class="nicdark_space100"></div>
+                    <div class="nicdark_space100"></div>
+                    <h1 class="white subtitle">Our Team</h1>
+                    <div class="nicdark_space10"></div>
+                    <h3 class="subtitle white">Your children's soundscape is designed by the most dedicated and talented team in Haiti's Christian Community</h3>
+                    <div class="nicdark_space20"></div>
+                    <div class="nicdark_divider left big"><span class="nicdark_bg_white nicdark_radius"></span></div>
+                    <div class="nicdark_space40"></div>
+                    <div class="nicdark_space50"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--end section-->
+    {# end jumbotron #}
+
+
+
+    {# if there is no Role data#}
+        <!-- ToDo:
+            - write something informing user that there is no Member data in DB
+        -->
+    {# end if there is no Role data#}
+    {# else #}
+        {% for role in roles.all %}
+        <!-- role: {{ role.label | capfirst }} -->
+        <section class="nicdark_section">
+            <div class="nicdark_container nicdark_clearfix">
+                <div class="nicdark_space50"></div>
+
+                {# Role object details #}
+                <div class="grid grid_12">
+                    <h1 class="subtitle greydark">{{ role.label | capfirst }}</h1>
+                    <div class="nicdark_space20"></div>
+                    <h3 class="subtitle grey">{{ role.description | capfirst }}</h3>
+                    <div class="nicdark_space20"></div>
+                    <div class="nicdark_divider left big">
+                        <span class="nicdark_radius nicdark_bg_{% cycle 'blue' 'yellow' 'green' 'violet' 'orange' 'red' as bg_color %}"></span>
+                    </div>
+                    <div class="nicdark_space10"></div>
+                </div>
+                {# end Role object details #}
+
+
+                {# Member object details #}
+                {% for member in members.all %}
+                    {% if member.role.id == role.id %}
+                    <!-- member {{ member.id | capfirst }} -->
+                    <div class="grid grid_3">
+                        <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow center">
+                            <a href="/team/members/{{ member.slug }}/">
+                                <img class="nicdark_opacity" 
+                                     alt="{{ member.first_name | add:' ' | capfirst }}{{ member.middle_name | add:' ' | capfirst }}{{ member.last_name | add:' ' | capfirst }}profile image" 
+                                     src="{{ member.profile_img.url }}"
+                                >
+                            </a>
+                            <div class="nicdark_textevidence  nicdark_bg_{{ bg_color }}">
+                                <h5 class="white nicdark_margin20">
+                                    {{ member.first_name | add:' ' | capfirst }}
+                                    {{ member.middle_name | add:' ' | capfirst }}
+                                    {{ member.last_name | add:' ' | capfirst }}
+                                </h5>
+                                <i class="icon-brush nicdark_iconbg right medium {{ bg_color }}"></i>
+                            </div>
+                            <div class="nicdark_textevidence">
+                                <div class="nicdark_margin20">
+                                    <p>{{ member.bio | truncatechars:80 }}</p>
+                                    <div class="nicdark_space20 nicdark_displaynone_ipadpotr"></div>
+                                    <a title="Email" href="mailto:{{ member.email }}" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip medium nicdark_shadow nicdark_radius_circle white nicdark_margin010 nicdark_bg_{{ bg_color }}">
+                                        <i class="icon-mail nicdark_rotate"></i>
+                                    </a>
+                                    <a title="Portfolio" href="{{ member.portfolio }}" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip medium nicdark_shadow nicdark_radius_circle white nicdark_margin010 nicdark_bg_{{ bg_color }}">
+                                        <i class="icon-globe-outline nicdark_rotate"></i>
+                                    </a>
+                                    <a title="Social Media" href="{{ member.social_media }}" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_tooltip medium nicdark_shadow nicdark_radius_circle white nicdark_margin010 nicdark_bg_{{ bg_color }}">
+                                        <i class="icon-youtube-play nicdark_rotate"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end member {{ member.id | capfirst }} -->
+                    {% endif %}
+                {% endfor %}
+                {# end Member object details #}
+
+                <div class="nicdark_space50"></div>
+            </div>
+        </section>
+        <!-- end role: {{ role.label | capfirst }} -->
+        {% endfor %}
+    {# end else #}
+
+{% endblock %}

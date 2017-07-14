@@ -1,0 +1,51 @@
+[
+	{
+		"model": "schedule.day",
+		"pk": 1,
+		"fields": {
+			"label": "Sunday"
+		}
+	},
+	{
+		"model": "schedule.day",
+		"pk": 2,
+		"fields": {
+			"label": "Monday"
+		}
+	},
+	{
+		"model": "schedule.day",
+		"pk": 3,
+		"fields": {
+			"label": "Tuesday"
+		}
+	},
+	{
+		"model": "schedule.day",
+		"pk": 4,
+		"fields": {
+			"label": "Wednesday"
+		}
+	},
+	{
+		"model": "schedule.day",
+		"pk": 5,
+		"fields": {
+			"label": "Thursday"
+		}
+	},
+	{
+		"model": "schedule.day",
+		"pk": 6,
+		"fields": {
+			"label": "Friday"
+		}
+	},
+	{
+		"model": "schedule.day",
+		"pk": 7,
+		"fields": {
+			"label": "Saturday"
+		}
+	}
+]
