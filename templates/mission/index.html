@@ -1,0 +1,100 @@
+{% extends "kidsfm/base.html" %}
+{% load staticfiles %}
+
+
+{% block metadata %}
+    <title>Mission - Kids FM</title>
+{% endblock %}
+
+
+{% block content %}
+	
+	{# jumbotron #}
+    <!--start section-->
+    <section id="nicdark_parallax_title" class="nicdark_section nicdark_imgparallax nicdark_parallaxx_img-excursions">
+        <div class="nicdark_filter greydark">
+            <div class="nicdark_container nicdark_clearfix">
+                <div class="grid grid_12">
+                    <div class="nicdark_space100"></div>
+                    <div class="nicdark_space100"></div>
+                    <h1 class="white subtitle">Our Mission</h1>
+                    <div class="nicdark_space10"></div>
+                    <h3 class="subtitle white">Kids FM's approach is to introduce the Gospel to Children in a fun and exciting way</h3>
+                    <div class="nicdark_space20"></div>
+                    <div class="nicdark_divider left big"><span class="nicdark_bg_white nicdark_radius"></span></div>
+                    <div class="nicdark_space40"></div>
+                    <div class="nicdark_space50"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--end section-->
+    {# end jumbotron #}
+
+
+
+    {# mission statements #}
+    <!--start section-->
+    <section class="nicdark_section">
+        <div class="nicdark_container nicdark_clearfix">
+            <div class="nicdark_space50"></div>
+
+            {# statement #}
+            {% for statement in statements %}
+            <div class="grid grid_3">
+                <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow">
+                    <a href="/mission/statements/{{ statement.slug }}">
+                        <img alt="" src="{{ statement.image.url }}">
+                    </a>
+                    <div class="nicdark_textevidence nicdark_bg_{% cycle 'blue' 'yellow' 'green' 'violet' 'orange' 'red' as bg_color %} center">
+                        <h5 class="white nicdark_margin20">{{ statement.title }}</h5>
+                        <i class="icon-stopwatch nicdark_iconbg right medium {{ bg_color }}"></i>
+                    </div>
+                    <div class="nicdark_textevidence center">
+                        <div class="nicdark_margin20">
+                            <p>{{ statement.description | truncatechars:80}}</p>
+                            <div class="nicdark_space20"></div>
+                            <a href="/mission/statements/{{ statement.slug }}" class="nicdark_press white nicdark_btn nicdark_bg_{{ bg_color }} medium nicdark_radius nicdark_shadow">MORE INFO</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {# end statement #}
+
+        </div>
+    </section>
+    <!--end section-->
+    {# end mission statements #}
+
+
+
+    {# page navigation buttons #}
+    <!--start section-->
+    <div class="nicdark_section">
+        <div class="nicdark_container nicdark_clearfix">
+            <div class="nicdark_space40"></div>
+            {# prev #}
+            <div class="grid grid_6 nicdark_aligncenter_iphoneland nicdark_aligncenter_iphonepotr">
+                <a class="nicdark_disable_floatright_iphoneland nicdark_disable_floatright_iphonepotr nicdark_btn nicdark_bg_green medium right nicdark_shadow nicdark_radius white nicdark_press"><i class="icon-left-open-outline"></i>&nbsp;&nbsp;&nbsp;PREV</a>
+            </div>
+            {# end prev #}
+
+            {# next #}
+            <div class="grid grid_6 nicdark_aligncenter_iphoneland nicdark_aligncenter_iphonepotr">
+                <a class=" nicdark_btn nicdark_bg_green medium nicdark_shadow nicdark_radius white nicdark_press">NEXT&nbsp;&nbsp;&nbsp;<i class="icon-right-open-outline"></i></a>
+            </div>
+            {# end next #}
+            <div class="nicdark_space50"></div>
+        </div>
+    </div>
+    <!--end section-->
+    {# page navigation buttons #}
+
+
+{% endblock %}
+
+
+
+
+

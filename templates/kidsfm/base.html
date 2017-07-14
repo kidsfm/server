@@ -1,0 +1,158 @@
+{% load staticfiles %}
+
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+	<head>
+		<!-- meta tags -->
+		{# meta tags #}
+
+			<!-- base metadata -->
+			{% include 'kidsfm/partials/_base_meta.html' %}
+			<!-- end base metadata -->
+
+
+			<!-- page-specific metadata -->
+			{% block metadata %}
+			{% endblock %}
+			<!-- end page-specific metadata -->
+
+		{# end meta tags #}
+		<!-- end meta tags -->
+
+
+
+		<!-- stylsheets -->
+		{# load css #}
+
+			<!-- theme css -->
+			<link rel="stylesheet" href="{% static "kidsfm/css/nicdark_style.css" %}">
+			<link rel="stylesheet" href="{% static "kidsfm/css/nicdark_responsive.css" %}">
+			<link rel="stylesheet" href="{% static "kidsfm/css/flags.css" %}">
+			<link rel="stylesheet" href="{% static "kidsfm/css/revslider/settings.css" %}">
+			<!-- end theme css -->
+
+
+			<!-- google fonts -->
+			<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'> <!-- font-family: 'Montserrat', sans-serif; -->
+			<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'> <!-- font-family: 'Raleway', sans-serif; -->
+			<link href='http://fonts.googleapis.com/css?family=Montez' rel='stylesheet' type='text/css'> <!-- font-family: 'Montez', cursive; -->
+			<!-- end google fonts -->
+
+
+			<!-- IE shiv -->
+			<!--[if lt IE 9]>  
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>  
+			<![endif]-->  
+			<!-- end IE shiv -->
+
+
+			<!-- adjustments to theme css -->
+			<link rel="stylesheet" href="{% static "kidsfm/css/adjustments.css" %}">
+			<!-- end adjustments to theme css -->
+
+
+			<!-- page-specific css -->
+			{% block css %}
+			{% endblock %}
+			<!-- end page-specific css -->
+
+		{# end load CSS #}
+		<!-- end stylsheets -->
+	</head>
+
+
+
+
+	<body id="start_nicdark_framework">
+		<!-- page container -->
+		{# page container #}
+			<div class="nicdark_site">
+	    		<div class="nicdark_site_fullwidth nicdark_clearfix">
+
+	    			<!-- overlay -->
+	    			{% include 'kidsfm/partials/_sidebar.html' %}
+	    			<!-- end overlay -->
+
+
+					<!-- sidebar -->
+					{% include 'kidsfm/partials/_sidebar.html' %}
+					<!-- end sidebar -->
+
+
+					<!-- navigation -->
+					{% include 'kidsfm/partials/_navigation.html' %}
+					<!-- end navigation -->
+					
+
+					<!-- page content -->
+					{% block content %}
+					{% endblock %}
+					<!-- end page content -->
+
+
+					<!-- footer -->
+					{% include 'kidsfm/partials/_footer.html' %}
+					<!-- end footer -->
+
+				</div>
+			</div>
+		{# end page container #}
+		<!-- end page container -->
+		
+
+
+		<!-- scripts -->
+		{# load javaScript #}
+
+			<!-- template js -->
+			<!--main-->
+			<script src="{% static "kidsfm/js/main/jquery.min.js" %}"></script> <!--Jquery-->
+			<script src="{% static "kidsfm/js/main/jquery-ui.js" %}"></script> <!--Jquery UI-->
+			<script src="{% static "kidsfm/js/main/excanvas.js" %}"></script> <!--canvas need for ie-->
+			<!--plugins-->
+			<script src="{% static "kidsfm/js/plugins/revslider/jquery.themepunch.tools.min.js" %}"></script> <!--revslider-->
+			<script src="{% static "kidsfm/js/plugins/revslider/jquery.themepunch.revolution.min.js" %}"></script> <!--revslider-->
+			<!--menu-->
+			<script src="{% static "kidsfm/js/plugins/menu/superfish.min.js" %}"></script> <!--superfish-->
+			<script src="{% static "kidsfm/js/plugins/menu/tinynav.min.js" %}"></script> <!--tinynav-->
+			<!--other-->
+			<script src="{% static "kidsfm/js/plugins/isotope/isotope.pkgd.min.js" %}"></script> <!--isotope-->
+			<script src="{% static "kidsfm/js/plugins/mpopup/jquery.magnific-popup.min.js" %}"></script> <!--mpopup-->
+			<script src="{% static "kidsfm/js/plugins/scroolto/scroolto.js" %}"></script> <!--Scrool To-->
+			<script src="{% static "kidsfm/js/plugins/nicescrool/jquery.nicescroll.min.js" %}"></script> <!--Nice Scroll-->
+			<script src="{% static "kidsfm/js/plugins/inview/jquery.inview.min.js" %}"></script> <!--inview-->
+			<script src="{% static "kidsfm/js/plugins/parallax/jquery.parallax-1.1.3.js" %}"></script> <!--parallax-->
+			<script src="{% static "kidsfm/js/plugins/countto/jquery.countTo.js" %}"></script> <!--jquery.countTo-->
+			<script src="{% static "kidsfm/js/plugins/countdown/jquery.countdown.js" %}"></script> <!--countdown-->
+			<!--settings-->
+			<script src="{% static "kidsfm/js/settings.js" %}"></script> <!--settings-->
+			<!-- end template js -->
+
+
+			<!-- base js -->
+			<script src="{% static "kidsfm/js/base.js" %}"></script>
+			<!-- end base js -->
+
+
+			<!-- page-specific js -->
+			{% block js %}
+			{% endblock %}
+			<!-- end page-specific js -->
+
+		{# end load javaScript #}
+		<!-- end scripts -->
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
