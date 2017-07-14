@@ -39,11 +39,11 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     # KidsFM: project apps
-    #'blog.apps.BlogConfig',
-    #'contact.apps.ContactConfig',
-    #'mission.apps.MissionConfig',
-    #'schedule.apps.ScheduleConfig',
-    #'team.apps.TeamConfig',
+    'blog.apps.BlogConfig',
+    'contact.apps.ContactConfig',
+    'mission.apps.MissionConfig',
+    'schedule.apps.ScheduleConfig',
+    'team.apps.TeamConfig',
 
     # KidsFM: 3rd party tools
     'django_extensions',

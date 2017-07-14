@@ -61,7 +61,8 @@ urlpatterns = [
     # /admin/
     url(
         r'^admin/',     
-        admin.site.urls),
+        admin.site.urls
+    ),
 
     # /blog/
     url(
