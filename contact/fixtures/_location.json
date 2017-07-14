@@ -1,0 +1,32 @@
+[
+	{
+		"model": "contact.location",
+		"pk": 1,
+		"fields": {
+			"title": "Main",
+			"description": "We are located at the heart of Mountain El-Shalom in Port-au-Prince, Haiti. Come by and check us out anytime.",
+			"is_primary": true,
+			"address": "Delmas 33",
+			"city": "Port Au Prince",
+			"state": "",
+			"country": "Haiti",
+			"phone": "(509) 44 54 4565",
+			"email": "hello@kidsfm.org"
+		}
+	},
+	{
+		"model": "contact.location",
+		"pk": 2,
+		"fields": {
+			"title": "Secondary",
+			"description": "We are located at the heart of the beautiful city of Cap Haitien. Come by and say hello.",
+			"is_primary": false,
+			"address": "Route de Tabbarre",
+			"city": "Cap Haitien",
+			"state": "",
+			"country": "Haiti",
+			"phone": "(509) 44 54 4565",
+			"email": "hello@kidsfm.org"
+		}
+	}
+]
