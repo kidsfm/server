@@ -37,7 +37,16 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hello'
+
+    # KidsFM: project apps
+    #'blog.apps.BlogConfig',
+    #'contact.apps.ContactConfig',
+    #'mission.apps.MissionConfig',
+    #'schedule.apps.ScheduleConfig',
+    #'team.apps.TeamConfig',
+
+    # KidsFM: 3rd party tools
+    'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -56,7 +65,7 @@ ROOT_URLCONF = 'gettingstarted.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'debug': True,
@@ -105,7 +114,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
+
+# KidsFM: updated Time Zone settings
+TIME_ZONE = 'America/New_York'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
@@ -129,10 +140,21 @@ STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+
+# KidsFM: added fully-qualified path to Media dir
+# Dir where user file uploads are stored
+# see: https://timmyomahony.com/blog/static-vs-media-and-root-vs-path-in-django/
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media/')
+
+
+
+
 
