@@ -2,7 +2,7 @@ alabaster==0.7.9
 appdirs==1.4.0
 Babel==2.3.4
 dj-database-url==0.4.1
-Django==1.11
+Django==1.11.23
 django-extensions==1.7.7
 docutils==0.13.1
 google-api-python-client==1.6.2
