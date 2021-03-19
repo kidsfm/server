@@ -9,7 +9,7 @@ google-api-python-client==1.6.2
 gunicorn==19.6.0
 httplib2==0.10.3
 imagesize==0.7.1
-Jinja2==2.9.5
+Jinja2==2.11.3
 keen==0.4.0
 MarkupSafe==0.23
 oauth2client==4.0.0
